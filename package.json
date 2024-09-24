@@ -2,10 +2,10 @@
   "name": "artauk",
   "version": "1.0.0",
   "description": "",
-  "main": "app/index.js",
+  "main": "src/app/index.js",
   "scripts": {
-    "start": "node app/index",
-    "start:dev": "nodemon app/index",
+    "start": "node src/app/index",
+    "start:dev": "nodemon src/app/index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
