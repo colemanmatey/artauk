@@ -1,0 +1,30 @@
+# Node.js dependencies
+node_modules/
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build and cache folders
+dist/
+build/
+.tmp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Visual Studio user-specific and build files
+*.user
+*.suo
+bin/
+obj/
+
+# SSDT Database Project files
+*.dacpac
+*.bacpac
+
+# VS Code settings
+.vscode/
