@@ -1,0 +1,17 @@
+{
+  "name": "artauk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "contributors": [
+    "Coleman Asare Matey",
+    "Aleena Prince",
+    "Pavan Kalyan Kotapati Narendra Kumar",
+    "Smit Vijaykumar Dave"
+  ],
+  "license": "ISC"
+}
