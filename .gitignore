@@ -16,15 +16,39 @@ build/
 .DS_Store
 Thumbs.db
 
-# Visual Studio user-specific and build files
+# VS Code settings
+.vscode/
+
+# Visual Studio files
+.vs/
 *.user
 *.suo
+*.userprefs
+
+# Build artifacts
 bin/
 obj/
 
-# SSDT Database Project files
+# SSDT specific files
 *.dacpac
 *.bacpac
+*.dbmdl
+*.dbproj.user
 
-# VS Code settings
-.vscode/
+# Backup files
+*.bak
+*.sql~
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Ignore SQL Server Data Tools specific files
+*.dbmdl
+*.jfm
+
+# Ignore deployment folders (if applicable)
+PublishScripts/
