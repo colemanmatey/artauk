@@ -61,4 +61,10 @@
     <Folder Include="schema\views" />
     <Folder Include="schema\procedures" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="schema\tables\User.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="database.refactorlog" />
+  </ItemGroup>
 </Project>
