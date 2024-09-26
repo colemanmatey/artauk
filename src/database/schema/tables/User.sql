@@ -8,7 +8,7 @@
     [CreatedAt] DATETIME NOT NULL DEFAULT SYSUTCDATETIME(), 
     [UpdatedOn] DATETIME NULL DEFAULT NULL, 
     [LastLogin] DATETIME NULL DEFAULT NULL,
-    CONSTRAINT UQ_Username UNIQUE (Username),
-    CONSTRAINT UQ_Email UNIQUE (Email)
+    CONSTRAINT UQ_User_Username UNIQUE (Username),
+    CONSTRAINT UQ_User_Email UNIQUE (Email)
 )
 GO
