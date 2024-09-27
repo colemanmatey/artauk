@@ -1,0 +1,54 @@
+# Node.js dependencies
+node_modules/
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build and cache folders
+dist/
+build/
+.tmp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userprefs
+
+# Build artifacts
+bin/
+obj/
+
+# SSDT specific files
+*.dacpac
+*.bacpac
+*.dbmdl
+*.dbproj.user
+
+# Backup files
+*.bak
+*.sql~
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Ignore SQL Server Data Tools specific files
+*.dbmdl
+*.jfm
+
+# Ignore deployment folders (if applicable)
+PublishScripts/

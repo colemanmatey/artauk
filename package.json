@@ -1,0 +1,29 @@
+{
+  "name": "artauk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server",
+    "start:dev": "nodemon src/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "contributors": [
+    "Coleman Asare Matey",
+    "Aleena Prince",
+    "Pavan Kalyan Kotapati Narendra Kumar",
+    "Smit Vijaykumar Dave"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "sequelize": "^6.37.3",
+    "tedious": "^18.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
