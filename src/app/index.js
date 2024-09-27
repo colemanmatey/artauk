@@ -1,10 +1,9 @@
 // modules
 const express = require("express");
 const path = require("path");
-const config = require("../config/index");
-const homeRoute = require("../routes/homeRoute");
+const routes = require("../routes");
 
-// application
+// settings
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../", "views"));
@@ -13,11 +12,6 @@ app.set("views", path.join(__dirname, "../", "views"));
 app.use(express.static(path.join(__dirname, "../../", "public")));
 
 // routes
-app.use("/", homeRoute);
+app.use("/", routes.homeRoutes);
 
-// listen to port
-app.listen(config.server.port, () => {
-    console.log(
-        `Server running at ${config.server.host}:${config.server.port}`
-    );
-});
+module.exports = app;
