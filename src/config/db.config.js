@@ -1,8 +1,8 @@
 // modules
-const dotenv = require("dotenv");
+const loadEnv = require("./env.config");
 
 // load env vars
-dotenv.config();
+loadEnv(process.env.NODE_ENV, 'database');
 
 // database configuration
 const config = {
