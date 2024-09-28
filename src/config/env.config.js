@@ -7,7 +7,7 @@ const fs = require("fs");
 const BASE_DIR = path.resolve(__dirname, "..", "..");
 
 // function to load env vars
-const loadEnv = (node_env) => {
+const loadEnv = (node_env, config) => {
     // create file path
     let envPath;    
     if (node_env.trim() == "production") {
@@ -21,7 +21,7 @@ const loadEnv = (node_env) => {
     // Check if the env file exists before loading
     if (fs.existsSync(envPath)) {
         dotenv.config({ path: envPath });
-        console.log(`Loading environment variables (${node_env.trim()})`);
+        console.log(`Loading environment variables for the ${config} (${node_env.trim()})`);
     } else {
         console.warn(`Warning: ${path.basename(envPath)} file not found.`)
         console.log('Loading environment variables (development)');
