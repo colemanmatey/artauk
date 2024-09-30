@@ -4,8 +4,8 @@ const { userSchema } = require("../schemas");
 
 // model
 const User = sequelize.define("User", userSchema, {
-    tableName: "User", // existing table name
-    timestamps: false,
+	tableName: "User", // existing table name
+	timestamps: false,
 });
 
 // exports

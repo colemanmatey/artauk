@@ -4,6 +4,6 @@ const serverConfig = require("./server.config");
 
 // exports
 module.exports = {
-    db: dbConfig,
-    server: serverConfig,
+	db: dbConfig,
+	server: serverConfig,
 };
