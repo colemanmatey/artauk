@@ -13,5 +13,6 @@ app.use(express.static(path.join(__dirname, "../../", "public")));
 
 // routes
 app.use("/", routes.homeRoutes);
+app.use("/auth", routes.authRoutes);
 
 module.exports = app;

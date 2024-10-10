@@ -5,9 +5,7 @@ const { homeController } = require("../controllers");
 // router
 const router = express.Router();
 
-// route
+// routes
 router.get("/", homeController.homepage);
-router.get("/login", homeController.login);
-router.get("/register", homeController.register);
 
 module.exports = router;
