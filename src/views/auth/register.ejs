@@ -9,29 +9,32 @@
    
     <!-- Content -->
     <main>
-        <form action="" method="post">
-            <div>
+        <section class="left-section">
+            <div class="artauk-box">
+                <span class="artauk-text">Artauk</span>
+            </div>
+        </section>
+
+        <section class="right-section">
+            <form action="/auth/register" method="post">
                 <label for="">Username:</label>
-                <input type="text" name="Username" id="username">
-            </div>
-            <div>
+                <input type="text" name="username" id="username" required>
+                
                 <label for="">Email:</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div>
+                <input type="email" name="email" id="email" required>
+                
                 <label for="">Password:</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div>
+                <input type="password" name="password" id="password" required>
+                
                 <label for="">Confirm password:</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div>
-                <input type="button" value="Register">
-            </div>
-        </form>
+                <input type="password" name="password2" id="password2" required>
+                
+                <input class="register" type="submit" value="Register">
+            </form>
+            <p class="signup-prompt">Already have an account? <a href="/auth/login">Sign in!</a></p>
+        </section>
     </main>
-    
+        
     <!-- Sidebar -->
     <aside></aside>
         

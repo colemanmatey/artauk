@@ -7,7 +7,7 @@ const sequelize = new Sequelize(db.database, db.username, db.password, {
 	host: db.host,
 	dialect: db.dialect,
 	logging: () => {
-		console.log("Establishing connection to the database...");
+		console.log("Connecting to the database...");
 	},
 	define: {
 		freezeTableName: true,
