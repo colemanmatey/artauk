@@ -14,17 +14,22 @@ const registerGET = (req, res) => {
 	let context = {
 		title: "Register",
 		user: null,
+		error: null,
 	};
 	res.render("auth/register", context);
 };
 
-const registerPOST = async (req, res, next) => {
+const registerPOST = async (req, res) => {
 	try {
 		await authService.createUser(req.body);
 		res.redirect("login");
 	} catch (err) {
-		err.status = 400;
-		next(err);
+		let context = {
+			title: "Register",
+			user: null,
+			error: err.message || 'An error occurred during registration',
+		};
+		res.render("auth/register", context);
 	}
 };
 
@@ -40,11 +45,12 @@ const loginGET = (req, res) => {
 	let context = {
 		title: "Login",
 		user: null,
+		error: null,
 	};
 	res.render("auth/login", context);
 };
 
-const loginPOST = async (req, res, next) => {
+const loginPOST = async (req, res) => {
 	try {
 		const user = await authService.getUserByUsername(req.body);
 		req.session.username = user.Username;
@@ -55,8 +61,12 @@ const loginPOST = async (req, res, next) => {
 		};
 		res.render("index", context);
 	} catch (err) {
-		err.status = 401;
-		next(err);
+		let context = {
+			title: "Login",
+			user: null,
+			error: err.message || 'Invalid username or password',
+		};
+		res.render("auth/login", context);
 	}
 };
 

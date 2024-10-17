@@ -16,6 +16,11 @@
         </section>
 
         <section class="right-section">
+            <% if (error) { %>
+                <div class="error-message">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
             <form action="/auth/register" method="post">
                 <label for="">Username:</label>
                 <input type="text" name="username" id="username" required>
