@@ -4,9 +4,8 @@
 	"description": "",
 	"main": "src/server.js",
 	"scripts": {
-		"start:prod": "set NODE_ENV=production && node src/server",
-		"start:stage": "set NODE_ENV=staging && node src/server",
-		"start:dev": "set NODE_ENV=development && nodemon src/server",
+		"start": "node --env-file .env src/server",
+		"start:dev": "nodemon --env-file .env.local src/server",
 		"lint": "eslint . --fix",
 		"format": "prettier --write .",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -21,7 +20,6 @@
 	"license": "ISC",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
-		"dotenv": "^16.4.5",
 		"ejs": "^3.1.10",
 		"express": "^4.21.0",
 		"express-session": "^1.18.1",

@@ -1,8 +1,7 @@
 # Node.js dependencies
 node_modules/
 .env
-.env.staging
-.env.production
+.env.local
 
 # Logs
 npm-debug.log*

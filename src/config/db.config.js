@@ -1,9 +1,3 @@
-// modules
-const loadEnv = require("./env.config");
-
-// load env vars
-loadEnv(process.env.NODE_ENV, "database");
-
 // database configuration
 const config = {
 	host: process.env.DB_HOST,

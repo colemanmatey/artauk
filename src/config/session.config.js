@@ -1,9 +1,5 @@
 // modules
-const loadEnv = require("./env.config");
 const { bool } = require("../utils"); 
-
-// load env vars
-loadEnv(process.env.NODE_ENV, "session");
 
 // session configuration
 const config = {
