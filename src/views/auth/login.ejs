@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <%- include("../partials/header") %> <%- include("../partials/nav") %>
+
+    <!-- Content -->
+    <main class="login-page">
+        <section class="login-section">
+            <h1 class="welcome-heading">Welcome to Artauk</h1>
+            <h2 class="login-heading">Log In</h2>
+           
+            <% if (error) { %>
+                <div class="error-message">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
+
+            <form action="/auth/login" method="post">
+                <label for="username">Username</label>
+                <input type="username" name="username" id="username" placeholder="Username" required />
+
+                <label for="password">Password</label>
+                <input type="password" name="password"  id="password" placeholder="Password" required />
+
+                <input class="register" type="submit" value="Log in" />
+            </form>
+            <p class="signup-prompt">
+                New to Artauk? <a href="/auth/register">Create an account</a>
+            </p>
+        </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside></aside>
+
+    <%- include("../partials/footer") %>
+</body>
+</html>

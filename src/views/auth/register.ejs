@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("../partials/head") %>
+</head>
+<body>
+    <%- include("../partials/header") %>
+    <%- include("../partials/nav") %>
+   
+    <!-- Content -->
+    <main>
+        <section class="left-section">
+            <div class="artauk-box">
+                <span class="artauk-text">Artauk</span>
+            </div>
+        </section>
+
+        <section class="right-section">
+            <% if (error) { %>
+                <div class="error-message">
+                    <p><%= error %></p>
+                </div>
+            <% } %>
+            <form action="/auth/register" method="post">
+                <label for="">Username:</label>
+                <input type="text" name="username" id="username" required>
+                
+                <label for="">Email:</label>
+                <input type="email" name="email" id="email" required>
+                
+                <label for="">Password:</label>
+                <input type="password" name="password" id="password" required>
+                
+                <label for="">Confirm password:</label>
+                <input type="password" name="password2" id="password2" required>
+                
+                <input class="register" type="submit" value="Register">
+            </form>
+            <p class="signup-prompt">Already have an account? <a href="/auth/login">Sign in!</a></p>
+        </section>
+    </main>
+        
+    <!-- Sidebar -->
+    <aside></aside>
+        
+    <%- include("../partials/footer") %>
+</body>
+</html>

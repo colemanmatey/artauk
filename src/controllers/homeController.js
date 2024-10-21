@@ -1,14 +1,21 @@
 // modules
 
 // [GET] Homepage
-const renderHomePage = (req, res) => {
-    context = {
-        title: "Homepage",
-    };
-    res.render("index", context);
+const homepage = async (req, res) => {
+	let user = null;
+
+	if (req.session.username) {
+		user = req.session.username;
+	}
+
+	let context = {
+		title: "Homepage",
+		user: user,
+	};
+	res.render("index", context);
 };
 
 // exports
 module.exports = {
-    renderHomePage,
+	homepage,
 };

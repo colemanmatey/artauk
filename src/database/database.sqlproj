@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{3219e037-5760-411e-925e-27429ea0d2da}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -60,6 +60,13 @@
     <Folder Include="schema\tables" />
     <Folder Include="schema\views" />
     <Folder Include="schema\procedures" />
+    <Folder Include="profiles\" />
+    <Folder Include="deployment" />
+    <Folder Include="deployment\dev" />
+    <Folder Include="deployment\staging" />
+    <Folder Include="deployment\prod" />
+    <Folder Include="comparisons" />
+    <Folder Include="Snapshots" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="schema\tables\User.sql" />
@@ -67,5 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="database.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="profiles\dev.publish.xml" />
+    <None Include="Snapshots\database_20241013_23-25-16.dacpac" />
   </ItemGroup>
 </Project>
