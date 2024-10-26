@@ -14,14 +14,20 @@ const sequelize = new Sequelize(db.database, db.username, db.password, {
 	},
 });
 
-// test connection
+// Establish the database connection
 sequelize
 	.authenticate()
 	.then(() => {
-		console.log("Database connection established successfully.");
+		console.log("Connection has been established successfully.");
+
+		// Sync the models with the database schema
+		return sequelize.sync();
 	})
-	.catch((err) => {
-		console.error("Failed to connect to the database. Error:", err);
+	.then(() => {
+		console.log("All models were synchronized successfully.");
+	})
+	.catch((error) => {
+		console.error("Unable to connect to the database:", error);
 	});
 
 // exports

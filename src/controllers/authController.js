@@ -1,5 +1,5 @@
 // modules
-const { userService } = require("../services");
+const { userService, profileService } = require("../services");
 const { handleRequest } = require("../utils");
 
 // Register
@@ -27,7 +27,7 @@ const registerPOST = async (req, res) => {
 		let context = {
 			title: "Register",
 			user: null,
-			error: err.message || 'An error occurred during registration',
+			error: err.message || "An error occurred during registration",
 		};
 		res.render("auth/register", context);
 	}
@@ -53,18 +53,25 @@ const loginGET = (req, res) => {
 const loginPOST = async (req, res) => {
 	try {
 		const user = await userService.getUserByUsername(req.body);
+		const profile = await profileService.getProfileByUsername(user.Username);
+
 		req.session.username = user.Username;
 
-		let context = {
+		const context = {
 			title: "Login",
 			user: req.session.username,
 		};
-		res.render("index", context);
+
+		if (!profile) {
+			res.redirect("/user/onboarding");
+		} else {
+			res.render("index", context);
+		}
 	} catch (err) {
-		let context = {
+		const context = {
 			title: "Login",
 			user: null,
-			error: err.message || 'Invalid username or password',
+			error: err.message,
 		};
 		res.render("auth/login", context);
 	}

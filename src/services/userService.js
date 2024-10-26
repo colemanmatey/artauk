@@ -39,25 +39,22 @@ const createUser = async (data) => {
 const getUserByUsername = async (data) => {
 	const userExists = await checkDataExists(User, { Username: data.username });
 
-	if (userExists) {
-		try {
-			const user = await User.findOne({ where: { Username: data.username } });
-
-			// Verify the password
-			const isPasswordValid = await bcrypt.compare(
-				data.password,
-				user.PasswordHash,
-			);
-			if (!isPasswordValid) {
-				throw new Error("Invalid password");
-			}
-			return user;
-		} catch (err) {
-			console.error(err);
-		}
-	} else {
-		throw new Error("User does not exist");
+	if (!userExists) {
+		throw new Error("Username does not exist");
 	}
+
+	const user = await User.findOne({ where: { Username: data.username } });
+
+	// Verify the password
+	const isPasswordValid = await bcrypt.compare(
+		data.password,
+		user.PasswordHash,
+	);
+	if (!isPasswordValid) {
+		throw new Error("Invalid password");
+	}
+
+	return user;
 };
 
 module.exports = {
