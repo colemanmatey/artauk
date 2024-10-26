@@ -5,7 +5,7 @@
 	"main": "src/server.js",
 	"scripts": {
 		"start": "node --env-file .env src/server",
-		"start:dev": "nodemon --env-file .env.local src/server",
+		"start:dev": "nodemon -r dotenv/config src/server dotenv_config_path=.env.local",
 		"lint": "eslint . --fix",
 		"format": "prettier --write .",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
 	"license": "ISC",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
+		"dotenv": "^16.4.5",
 		"ejs": "^3.1.10",
 		"express": "^4.21.0",
 		"express-session": "^1.18.1",
