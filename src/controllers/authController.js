@@ -1,5 +1,5 @@
 // modules
-const { authService } = require("../services");
+const { userService } = require("../services");
 const { handleRequest } = require("../utils");
 
 // Register
@@ -21,7 +21,7 @@ const registerGET = (req, res) => {
 
 const registerPOST = async (req, res) => {
 	try {
-		await authService.createUser(req.body);
+		await userService.createUser(req.body);
 		res.redirect("login");
 	} catch (err) {
 		let context = {
@@ -52,7 +52,7 @@ const loginGET = (req, res) => {
 
 const loginPOST = async (req, res) => {
 	try {
-		const user = await authService.getUserByUsername(req.body);
+		const user = await userService.getUserByUsername(req.body);
 		req.session.username = user.Username;
 
 		let context = {
