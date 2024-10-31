@@ -57,7 +57,14 @@ const getUserByUsername = async (data) => {
 	return user;
 };
 
+// get user by id
+const getUserById = async (id) => {
+	const user = await User.findByPk(id);
+	return user;
+};
+
 module.exports = {
 	createUser,
 	getUserByUsername,
+	getUserById,
 };

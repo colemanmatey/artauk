@@ -7,7 +7,7 @@
     
     <div class="auth-buttons">
         <% if (user != null) { %>
-            <p><strong>Hi, <%= user %>!</strong></>
+            <p><%= user %>!</strong></>
             <form class="logout" action="/auth/logout" method="post">
                 <input class="sign-in" type="submit" value="Logout">
             </form>
