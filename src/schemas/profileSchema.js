@@ -1,5 +1,5 @@
 // modules
-const { DataTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 
 // schema
 const Profile = {
@@ -56,7 +56,7 @@ const Profile = {
 	CreatedAt: {
 		type: DataTypes.DATE,
 		allowNull: false,
-		defaultValue: DataTypes.NOW,
+		defaultValue: Sequelize.fn("SYSUTCDATETIME"),
 	},
 	UpdatedAt: {
 		type: DataTypes.DATE,

@@ -1,5 +1,7 @@
+// modules
 const { Profile, User } = require("../models");
 
+// get profile by username
 const getProfileByUsername = async (username) => {
 	try {
 		const user = await User.findOne({
@@ -22,6 +24,46 @@ const getProfileByUsername = async (username) => {
 	}
 };
 
+// create profile
+const createProfile = async (userid, data) => {
+	const {
+		FirstName,
+		LastName,
+		DateOfBirth,
+		Phone,
+		Address,
+		City,
+		State,
+		PostalCode,
+		Country,
+		ProfilePicture,
+		Bio,
+	} = data;
+
+	try {
+		// Create a new profile
+		const profile = await Profile.create({
+			UserID: userid,
+			FirstName,
+			LastName,
+			DateOfBirth,
+			Phone,
+			Address,
+			City,
+			State,
+			PostalCode,
+			Country,
+			ProfilePicture,
+			Bio,
+		});
+		return profile;
+	} catch (error) {
+		console.error("Error creating profile:", error);
+		throw error;
+	}
+};
+
 module.exports = {
 	getProfileByUsername,
+	createProfile,
 };

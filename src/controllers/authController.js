@@ -63,7 +63,7 @@ const loginPOST = async (req, res) => {
 		};
 
 		if (!profile) {
-			res.redirect("/onboarding/user/" + user.UserID);
+			res.redirect("/profile/onboarding/user/" + user.UserID);
 		} else {
 			res.render("index", context);
 		}
