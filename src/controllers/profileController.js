@@ -52,7 +52,7 @@ const profilePOST = async (req, res) => {
 		profile: profile.dataValues,
 	};
 
-	res.render("index", context)
+	res.render("dashboard", context)
 	
 };
 

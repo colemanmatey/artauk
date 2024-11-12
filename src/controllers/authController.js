@@ -65,7 +65,8 @@ const loginPOST = async (req, res) => {
 		if (!profile) {
 			res.redirect("/profile/onboarding/user/" + user.UserID);
 		} else {
-			res.render("index", context);
+			context.profile = profile.dataValues;
+			res.render("dashboard", context);
 		}
 	} catch (err) {
 		const context = {

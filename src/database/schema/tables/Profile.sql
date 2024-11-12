@@ -18,6 +18,6 @@
     [UpdatedAt] DATETIME NULL DEFAULT NULL,
     CONSTRAINT UQ_Profile_UserID UNIQUE (UserID),
     CONSTRAINT FK_Profile_UserID FOREIGN KEY (UserID) REFERENCES [dbo].[User](UserID),
-    CONSTRAINT FK_Profile_RoleID FOREIGN KEY (RoleID) REFERENCES [dbo].[Role]([RoleID])
+    CONSTRAINT FK_Profile_RoleID FOREIGN KEY (RoleID) REFERENCES [dbo].[Role](RoleID)
 )
 GO
