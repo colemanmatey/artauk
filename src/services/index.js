@@ -1,7 +1,11 @@
 // modules
-const authService = require("./authService");
+const userService = require("./userService");
+const profileService = require("./profileService");
+const artService = require("./artService");
 
 // exports
 module.exports = {
-	authService,
+	userService,
+	profileService,
+	artService,
 };

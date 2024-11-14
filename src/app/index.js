@@ -21,6 +21,8 @@ app.use(session(config.session));
 // routes
 app.use("/", routes.homeRoutes);
 app.use("/auth", routes.authRoutes);
+app.use("/profile", routes.profileRoutes);
+app.use("/art", routes.artRoutes);
 
 // error handling
 app.use(errorHandlers.error404);

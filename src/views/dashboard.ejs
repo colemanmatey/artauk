@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="/styles/style2.css">
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <%- include("./partials/nav") %>
+    
+    <!-- Content -->
+    <main class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>Dashboard</h2>
+            <ul>
+                <li><a href="dashboard.html" class="sidebar-link">My Collection</a></li>
+                <li><a href="favorites.html" class="sidebar-link">Favorites</a></li>
+            </ul>
+        </aside>
+
+        <!-- Art Gallery Content -->
+        <section class="art-gallery" id="art-collection">
+            <h1>My Collection</h1>
+            <a href="/art/add/new/" class="add-art-link">Add Art</a>
+            <hr>
+            <div class="art-grid">
+                <div class="art-card" data-art-id="1">
+                    <img src="/images/placeholder.jpg" alt="Starry Night">
+                    <h3>Starry Night</h3>
+                    <p><em>Vincent van Gogh, 1889</em></p>
+                    <p class="gallery-name">Museum of Modern Art</p>
+                    <p class="price">Price: $100 million</p>
+                </div>
+                
+                <div class="art-card" data-art-id="2">
+                    <img src="/images/placeholder.jpg" alt="The Persistence of Memory">
+                    <h3>The Persistence of Memory</h3>
+                    <p><em>Salvador Dalí, 1931</em></p>
+                    <p class="gallery-name">Museum of Modern Art</p>
+                    <p class="price">Price: $50 million</p>
+                </div>
+                
+                <div class="art-card" data-art-id="3">
+                    <img src="/images/placeholder.jpg" alt="The Scream">
+                    <h3>The Scream</h3>
+                    <p><em>Edvard Munch, 1893</em></p>
+                    <p class="gallery-name">National Gallery, Oslo</p>
+                    <p class="price">Price: $120 million</p>
+                </div>
+                
+                <div class="art-card" data-art-id="4">
+                    <img src="/images/placeholder.jpg" alt="Girl with a Pearl Earring">
+                    <h3>Girl with a Pearl Earring</h3>
+                    <p><em>Johannes Vermeer, 1665</em></p>
+                    <p class="gallery-name">Mauritshuis</p>
+                    <p class="price">Price: $30 million</p>
+                </div>
+                
+                <div class="art-card" data-art-id="5">
+                    <img src="/images/placeholder.jpg" alt="Guernica">
+                    <h3>Guernica</h3>
+                    <p><em>Pablo Picasso, 1937</em></p>
+                    <p class="gallery-name">Museo Reina Sofía</p>
+                    <p class="price">Price: $200 million</p>
+                </div>
+                
+                <div class="art-card" data-art-id="6">
+                    <img src="/images/placeholder.jpg" alt="The Kiss">
+                    <h3>The Kiss</h3>
+                    <p><em>Gustav Klimt, 1907-1908</em></p>
+                    <p class="gallery-name">Österreichische Galerie Belvedere</p>
+                    <p class="price">Price: $150 million</p>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    
+    <!-- Sidebar -->
+    <aside></aside>
+    
+    <%- include("./partials/footer") %>
+</body>
+</html>

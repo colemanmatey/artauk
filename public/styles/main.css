@@ -1,220 +1,226 @@
 /* Global Styles */
 body {
-    font-family: "Arial", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+	font-family: "Arial", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 /* Header */
 header {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 5px; /* Reduced padding */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #eaeaea;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 5px; /* Reduced padding */
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #eaeaea;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .logo img {
-    width: 175px; /* Increased size */
-    height: auto; /* Maintain aspect ratio */
+	width: 175px; /* Increased size */
+	height: auto; /* Maintain aspect ratio */
 }
 
 .auth-buttons {
-    display: flex; /* Align buttons horizontally */
-    gap: 10px; /* Space between buttons */
+	display: flex; /* Align buttons horizontally */
+	gap: 10px; /* Space between buttons */
 }
 
 .sign-in,
 .home-btn,
 .register-btn {
-    /* Add register-btn here */
-    background-color: #505050; /* Dark grey */
-    text-decoration: none;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition */
+	/* Add register-btn here */
+	background-color: #505050; /* Dark grey */
+	text-decoration: none;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition:
+		background-color 0.3s ease,
+		transform 0.3s ease; /* Added transition */
 }
 
 .sign-in:hover,
 .home-btn:hover,
 .register-btn:hover {
-    /* Add hover effects for register button */
-    background-color: #404040; /* Darker grey on hover */
-    transform: scale(1.05); /* Scale up on hover */
+	/* Add hover effects for register button */
+	background-color: #404040; /* Darker grey on hover */
+	transform: scale(1.05); /* Scale up on hover */
 }
 
 /* Main Layout */
 main {
-    display: flex;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
+	display: flex;
+	padding: 40px;
+	max-width: 1200px;
+	margin: auto;
 }
 
 /* Fade-in animation */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px); /* Slide in from below */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+	from {
+		opacity: 0;
+		transform: translateY(20px); /* Slide in from below */
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 /* Background for the login page */
 .login-page {
-    background-image: url("../images/mountain.jpg"); /* Change this to your background image path */
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the image */
-    min-height: 72vh; /* Full height of the viewport */
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Center content vertically */
+	background-image: url("../images/mountain.jpg"); /* Change this to your background image path */
+	background-size: cover; /* Cover the entire area */
+	background-position: center; /* Center the image */
+	min-height: 72vh; /* Full height of the viewport */
+	display: flex;
+	justify-content: center;
+	align-items: center; /* Center content vertically */
 }
 
 /* Login Section */
 .login-section {
-    width: 2500px; /* Adjusted width */
-    max-width: 50%; /* Make it responsive */
-    background-color: rgba(
-        255,
-        255,
-        255,
-        0.9
-    ); /* Slightly transparent white background */
-    padding: 30px; /* Adjust padding for better spacing */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    animation: fadeIn 2s ease; /* Fade-in effect */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: center; /* Center content vertically */
-    margin-left: 20px; /* Gap between sections */
-    margin-top: 20px; /* Add margin at the top for spacing */
+	width: 2500px; /* Adjusted width */
+	max-width: 50%; /* Make it responsive */
+	background-color: rgba(
+		255,
+		255,
+		255,
+		0.9
+	); /* Slightly transparent white background */
+	padding: 30px; /* Adjust padding for better spacing */
+	border-radius: 10px; /* Rounded corners */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
+	animation: fadeIn 2s ease; /* Fade-in effect */
+	display: flex;
+	flex-direction: column; /* Stack elements vertically */
+	justify-content: center; /* Center content vertically */
+	margin-left: 20px; /* Gap between sections */
+	margin-top: 20px; /* Add margin at the top for spacing */
 }
 
 /* Left Section for Home Page */
 .left-section {
-    width: 1000px; /* Increased width of left section */
-    background: url("../images/1.jpg") no-repeat center center; /* Background image on the left side */
-    background-size: cover;
+	width: 1000px; /* Increased width of left section */
+	background: url("../images/1.jpg") no-repeat center center; /* Background image on the left side */
+	background-size: cover;
 
-    animation: fadeIn 1s ease; /* Fade-in effect */
-    /* Animation for background */
-    animation: moveBackground 20s linear infinite; /* Added background animation */
-    margin: 0; /* Remove margins */
-    padding: 0; /* Remove padding */
+	animation: fadeIn 1s ease; /* Fade-in effect */
+	/* Animation for background */
+	animation: moveBackground 20s linear infinite; /* Added background animation */
+	margin: 0; /* Remove margins */
+	padding: 0; /* Remove padding */
 }
 
 /* Background Animation */
 @keyframes moveBackground {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 100% 0;
+	}
 }
 
 .artauk-box {
-    background-color: rgba(
-        51,
-        51,
-        51,
-        0.8
-    ); /* Dark background for better contrast */
-    color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 30px;
-    text-align: center;
+	background-color: rgba(
+		51,
+		51,
+		51,
+		0.8
+	); /* Dark background for better contrast */
+	color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	margin-top: 30px;
+	text-align: center;
 }
 
 .artauk-text {
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 5px;
+	font-size: 30px;
+	font-weight: bold;
+	letter-spacing: 5px;
 }
 
 .artauk-box p {
-    font-size: 18px;
-    margin: 20px 0;
+	font-size: 18px;
+	margin: 20px 0;
 }
 
 .explore-btn {
-    background-color: #ff6f61; /* Bright button */
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+	background-color: #ff6f61; /* Bright button */
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 8px;
+	transition:
+		background-color 0.3s ease,
+		transform 0.3s ease;
 }
 
 .explore-btn:hover {
-    background-color: #e65c55;
-    transform: scale(1.05);
+	background-color: #e65c55;
+	transform: scale(1.05);
 }
 
 /* Right Section for Form */
 .right-section {
-    width: 1000px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+	width: 1000px;
+	background-color: rgba(255, 255, 255, 0.9);
+	padding: 40px;
+	border-radius: 10px; /* Rounded corners */
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 
-    animation: fadeIn 1s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20px;
+	animation: fadeIn 1s ease;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-left: 20px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center; /* Center the content */
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	align-items: center; /* Center the content */
 }
 
 label {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #333;
-    align-self: flex-start; /* Align label to start */
+	font-size: 16px;
+	margin-bottom: 8px;
+	color: #333;
+	align-self: flex-start; /* Align label to start */
 }
 
 input[type="text"],
 input[type="username"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    border: 1px solid #bbb;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transition for input fields */
+	width: 100%;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid #bbb;
+	border-radius: 5px;
+	font-size: 16px;
+	transition:
+		border-color 0.3s ease,
+		box-shadow 0.3s ease; /* Transition for input fields */
 }
 
 /* Hover effect for input fields */
@@ -222,89 +228,95 @@ input[type="text"]:hover,
 input[type="username"]:hover,
 input[type="email"]:hover,
 input[type="password"]:hover {
-    border-color: #4caf50;
+	border-color: #4caf50;
 }
 
 input[type="text"]:focus,
 input[type="username"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #4caf50;
-    box-shadow: 0 0 5px rgba(100, 200, 100, 0.5);
+	border-color: #4caf50;
+	box-shadow: 0 0 5px rgba(100, 200, 100, 0.5);
 }
 
 /* Register Button */
 .register {
-    background-color: #505050; /* Dark grey */
-    color: white;
-    border: none;
-    padding: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+	background-color: #505050; /* Dark grey */
+	color: white;
+	border: none;
+	padding: 12px;
+	font-size: 18px;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 8px;
+	margin-top: 20px;
+	width: 100%;
+	text-align: center;
+	transition:
+		background-color 0.3s ease,
+		transform 0.3s ease;
 }
 
 /* Hover effect for the register button */
 .register:hover {
-    background-color: #404040;
-    transform: scale(1.05);
+	background-color: #404040;
+	transform: scale(1.05);
 }
 
 /* Checkbox */
 .checkbox-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .checkbox-container input[type="checkbox"] {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
 /* Footer */
 footer {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    text-align: center;
-    color: #666;
-    border-top: 2px solid #eaeaea;
-    font-size: 14px;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	text-align: center;
+	color: #666;
+	border-top: 2px solid #eaeaea;
+	font-size: 14px;
 }
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    main {
-        flex-direction: column;
-        padding: 20px;
-    }
+	main {
+		flex-direction: column;
+		padding: 20px;
+	}
 
-    .left-section,
-    .right-section {
-        width: 100%;
-        margin-bottom: 30px;
-    }
+	.left-section,
+	.right-section {
+		width: 100%;
+		margin-bottom: 30px;
+	}
 
-    form {
-        padding: 20px;
-    }
+	form {
+		padding: 20px;
+	}
 }
 /* Custom styles for login page headings */
 .welcome-heading,
 .login-heading {
-    font-family: "Sugar Magic", cursive; /* Apply Sugar Magic font */
-    font-weight: bold;
-    text-align: center;
+	font-family: "Sugar Magic", cursive; /* Apply Sugar Magic font */
+	font-weight: bold;
+	text-align: center;
 }
 
 /* Centering the login section */
 .right-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-message {
+	color: red;
 }

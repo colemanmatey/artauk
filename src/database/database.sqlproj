@@ -71,6 +71,8 @@
   <ItemGroup>
     <Build Include="schema\tables\User.sql" />
     <Build Include="schema\tables\Profile.sql" />
+    <Build Include="schema\tables\Role.sql" />
+    <Build Include="schema\tables\Art.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="database.refactorlog" />
@@ -78,5 +80,7 @@
   <ItemGroup>
     <None Include="profiles\dev.publish.xml" />
     <None Include="Snapshots\database_20241013_23-25-16.dacpac" />
+    <None Include="Snapshots\database_20241102_20-34-18.dacpac" />
+    <None Include="Snapshots\database_20241112_14-53-57.dacpac" />
   </ItemGroup>
 </Project>

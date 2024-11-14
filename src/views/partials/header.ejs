@@ -7,9 +7,11 @@
     
     <div class="auth-buttons">
         <% if (user != null) { %>
-            <p><strong>Hi, <%= user %>!</strong></>
+            <p><%= user %>!</strong></>
+            <a href="/profile" class="profile">Profile</a>
+            <a href="/dashboard" class="dashboard">Dashboard</a>
             <form class="logout" action="/auth/logout" method="post">
-                <input class="sign-in" type="submit" value="Logout">
+                <input type="submit" value="Logout">
             </form>
         <% } else { %>
             <a href="/auth/login" class="sign-in">Sign In</a>

@@ -1,5 +1,5 @@
 // modules
-const { authService } = require("../services");
+const { userService, profileService } = require("../services");
 const { handleRequest } = require("../utils");
 
 // Register
@@ -21,13 +21,13 @@ const registerGET = (req, res) => {
 
 const registerPOST = async (req, res) => {
 	try {
-		await authService.createUser(req.body);
+		await userService.createUser(req.body);
 		res.redirect("login");
 	} catch (err) {
 		let context = {
 			title: "Register",
 			user: null,
-			error: err.message || 'An error occurred during registration',
+			error: err.message || "An error occurred during registration",
 		};
 		res.render("auth/register", context);
 	}
@@ -52,19 +52,27 @@ const loginGET = (req, res) => {
 
 const loginPOST = async (req, res) => {
 	try {
-		const user = await authService.getUserByUsername(req.body);
+		const user = await userService.getUserByUsername(req.body);
+		const profile = await profileService.getProfileByUsername(user.Username);
+
 		req.session.username = user.Username;
 
-		let context = {
+		const context = {
 			title: "Login",
 			user: req.session.username,
 		};
-		res.render("index", context);
+
+		if (!profile) {
+			res.redirect("/profile/onboarding/user/" + user.UserID);
+		} else {
+			context.profile = profile.dataValues;
+			res.render("dashboard", context);
+		}
 	} catch (err) {
-		let context = {
+		const context = {
 			title: "Login",
 			user: null,
-			error: err.message || 'Invalid username or password',
+			error: err.message,
 		};
 		res.render("auth/login", context);
 	}
