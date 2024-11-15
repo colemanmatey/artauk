@@ -11,7 +11,6 @@ import errorHandlers from "../middlewares/index.js";
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src", "views"));
-console.log(path.join(process.cwd(), "src", "public"));
 
 // middleware
 app.use(express.static(path.join(process.cwd(), "public")));
