@@ -1,5 +1,5 @@
 // modules
-const { Art } = require("../models");
+import { Art } from "../models/index.js";
 
 // Create a new art
 const createArt = async (profileID, data) => {
@@ -29,6 +29,6 @@ const createArt = async (profileID, data) => {
 };
 
 // module exports
-module.exports = {
+export default {
     createArt,
 };

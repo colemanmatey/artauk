@@ -1,7 +1,7 @@
 // modules
-const bcrypt = require("bcryptjs");
-const { User } = require("../models");
-const { checkDataExists } = require("../validators");
+import bcrypt from "bcryptjs";
+import { User } from "../models/index.js";
+import { checkDataExists } from "../validators/index.js";
 
 // create user
 const createUser = async (data) => {
@@ -63,7 +63,7 @@ const getUserById = async (id) => {
 	return user;
 };
 
-module.exports = {
+export default {
 	createUser,
 	getUserByUsername,
 	getUserById,

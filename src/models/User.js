@@ -1,6 +1,6 @@
 // modules
-const sequelize = require("../app/db");
-const { userSchema } = require("../schemas");
+import sequelize from "../app/db.js";
+import { userSchema } from "../schemas/index.js";
 
 // model
 const User = sequelize.define("User", userSchema, {
@@ -9,4 +9,4 @@ const User = sequelize.define("User", userSchema, {
 });
 
 // exports
-module.exports = User;
+export default User;

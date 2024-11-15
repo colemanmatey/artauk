@@ -1,12 +1,12 @@
 // modules
-const homeController = require("../controllers/homeController");
-const authController = require("../controllers/authController");
-const profileController = require("../controllers/profileController");
-const artController = require("../controllers/artController");
+import homeController from "../controllers/homeController.js";
+import authController from "../controllers/authController.js";
+import profileController from "../controllers/profileController.js";
+import artController from "../controllers/artController.js";
 
 
 // exports
-module.exports = {
+export {
 	homeController,
 	authController,
 	profileController,

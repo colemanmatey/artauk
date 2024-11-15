@@ -1,11 +1,7 @@
 // modules
-const userSchema = require("./userSchema");
-const profileSchema = require("./profileSchema");
-const artSchema = require("./artSchema");
+import userSchema from "./userSchema.js";
+import profileSchema from "./profileSchema.js";
+import artSchema from "./artSchema.js";
 
 // exports
-module.exports = {
-	userSchema,
-	profileSchema,
-	artSchema,
-};
+export { userSchema, profileSchema, artSchema };

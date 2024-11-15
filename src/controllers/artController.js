@@ -1,5 +1,5 @@
 // modules
-const { artService, profileService } = require("../services");
+// import { artService, profileService } from "../services/index.js";
 
 // [GET] Add new art
 const addNew = async (req, res) => {
@@ -16,14 +16,7 @@ const addNew = async (req, res) => {
     res.render("addart", context);
 };
 
-// [POST] Add new art
-const addNewPost = async (req, res) => {
-    
-};
-
-
 // exports
-module.exports = {
+export default {
     addNew,
-    addNewPost,
-};
+}

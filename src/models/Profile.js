@@ -1,7 +1,7 @@
 // modules
-const { Sequelize } = require("sequelize");
-const sequelize = require("../app/db");
-const { profileSchema } = require("../schemas");
+import { Sequelize } from "sequelize";
+import sequelize from "../app/db.js";
+import { profileSchema } from "../schemas/index.js";
 
 // model
 const Profile = sequelize.define("Profile", profileSchema, {
@@ -15,4 +15,4 @@ const Profile = sequelize.define("Profile", profileSchema, {
 });
 
 // exports
-module.exports = Profile;
+export default Profile;

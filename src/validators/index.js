@@ -7,6 +7,6 @@ const checkDataExists = async (model, filter) => {
 };
 
 // exports
-module.exports = {
+export  {
 	checkDataExists,
 };

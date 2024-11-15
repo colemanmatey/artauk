@@ -16,7 +16,7 @@ const handleRequest = (req, res, next, handlers) => {
 };
 
 // exports
-module.exports = {
+export {
 	bool,
 	handleRequest,
-};
+}

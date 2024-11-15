@@ -1,5 +1,5 @@
 // modules
-const { bool } = require("../utils");
+import { bool } from "../utils/index.js";
 
 // session configuration
 const config = {
@@ -10,4 +10,4 @@ const config = {
 };
 
 // exports
-module.exports = config;
+export default config;

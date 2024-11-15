@@ -1,10 +1,10 @@
 // modules
-const userService = require("./userService");
-const profileService = require("./profileService");
-const artService = require("./artService");
+import userService from "./userService.js";
+import profileService from "./profileService.js";
+import artService from "./artService.js";
 
 // exports
-module.exports = {
+export {
 	userService,
 	profileService,
 	artService,

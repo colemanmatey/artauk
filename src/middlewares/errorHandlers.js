@@ -13,7 +13,7 @@ const error500 = (err, req, res, next) => {
 	});
 };
 
-module.exports = {
+export default {
 	error404,
 	error500,
 };

@@ -1,13 +1,13 @@
 // modules
-const homeRoutes = require("./homeRoutes");
-const authRoutes = require("./authRoutes");
-const profileRoutes = require("./profileRoutes");
-const artRoutes = require("./artRoutes");
+import homeRoutes from "./homeRoutes.js";
+import authRoutes from "./authRoutes.js";
+import profileRoutes from "./profileRoutes.js";
+import artRoutes from "./artRoutes.js";
 
 // exports
-module.exports = {
-	homeRoutes,
-	authRoutes,
-	profileRoutes,
-	artRoutes,
+export default {
+	home: homeRoutes,
+	auth: authRoutes,
+	profile: profileRoutes,
+	art: artRoutes,
 };
