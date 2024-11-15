@@ -1,6 +1,6 @@
 // modules
-const express = require("express");
-const { artController } = require("../controllers");
+import express from "express";
+import { artController } from "../controllers/index.js";
 
 // router
 const router = express.Router();
@@ -8,7 +8,6 @@ const router = express.Router();
 // routes
 router.route("/add/new")
     .get(artController.addNew)
-    .post(artController.addNewPost);
 
 // exports
-module.exports = router;
+export default router;

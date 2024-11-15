@@ -1,5 +1,5 @@
 // modules
-const { Profile, User } = require("../models");
+import { Profile, User } from "../models/index.js";
 
 // get profile by username
 const getProfileByUsername = async (username) => {
@@ -63,7 +63,7 @@ const createProfile = async (userid, data) => {
 	}
 };
 
-module.exports = {
+export default {
 	getProfileByUsername,
 	createProfile,
 };

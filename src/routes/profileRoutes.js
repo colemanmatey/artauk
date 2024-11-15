@@ -1,6 +1,6 @@
 // modules
-const express = require("express");
-const { profileController } = require("../controllers");
+import express from "express";
+import { profileController } from "../controllers/index.js";
 
 // router
 const router = express.Router();
@@ -14,4 +14,4 @@ router.route("/onboarding/user/:id/new")
 	.post(profileController.profile);
 
 // exports
-module.exports = router;
+export default router;

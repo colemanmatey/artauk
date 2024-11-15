@@ -16,6 +16,6 @@ const homepage = async (req, res) => {
 };
 
 // exports
-module.exports = {
+export default {
 	homepage,
 };

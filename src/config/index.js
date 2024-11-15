@@ -1,11 +1,11 @@
 // modules
-const dbConfig = require("./db.config");
-const serverConfig = require("./server.config");
-const sessionConfig = require("./session.config");
+import dbConfig from "./db.config.js";
+import serverConfig from "./server.config.js";
+import sessionConfig from "./session.config.js";
 
 // exports
-module.exports = {
+export default {
 	db: dbConfig,
 	server: serverConfig,
-	session: sessionConfig,
+	session: sessionConfig
 };

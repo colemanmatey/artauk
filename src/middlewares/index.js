@@ -1,7 +1,5 @@
 // modules
-const errorHandlers = require("./errorHandlers");
+import errorHandlers from "./errorHandlers.js";
 
 // exports
-module.exports = {
-	errorHandlers,
-};
+export default errorHandlers;

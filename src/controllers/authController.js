@@ -1,6 +1,6 @@
 // modules
-const { userService, profileService } = require("../services");
-const { handleRequest } = require("../utils");
+import { userService, profileService } from  "../services/index.js";
+import { handleRequest } from "../utils/index.js";
 
 // Register
 const register = (req, res, next) => {
@@ -89,7 +89,7 @@ const logout = (req, res, next) => {
 };
 
 // exports
-module.exports = {
+export default {
 	register,
 	login,
 	logout,

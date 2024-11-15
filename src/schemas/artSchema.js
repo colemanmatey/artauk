@@ -1,8 +1,8 @@
 // modules
-const { Sequelize, DataTypes } = require("sequelize");
+import { Sequelize, DataTypes } from "sequelize";
 
 // schema
-const Art = {
+const artSchema = {
     ArtID: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -36,4 +36,4 @@ const Art = {
 };
 
 // exports
-module.exports = Art;
+export default artSchema;

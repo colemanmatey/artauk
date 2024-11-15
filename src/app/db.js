@@ -1,11 +1,11 @@
 // modules
-const { Sequelize } = require("sequelize");
-const { db } = require("../config");
+import { Sequelize } from "sequelize";
+import config from "../config/index.js";
 
 // create connection
-const sequelize = new Sequelize(db.database, db.username, db.password, {
-	host: db.host,
-	dialect: db.dialect,
+const sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, {
+	host: config.db.host,
+	dialect: config.db.dialect,
 	logging: () => {
 		console.log("Connecting to the database...");
 	},
@@ -31,4 +31,4 @@ sequelize
 	});
 
 // exports
-module.exports = sequelize;
+export default sequelize;

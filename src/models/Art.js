@@ -1,6 +1,6 @@
 // modules
-const sequelize = require("../app/db");
-const { artSchema } = require("../schemas");
+import sequelize from "../app/db.js";
+import { artSchema } from "../schemas/index.js";
 
 // model
 const Art = sequelize.define("Art", artSchema, {
@@ -9,4 +9,4 @@ const Art = sequelize.define("Art", artSchema, {
 });
 
 // exports
-module.exports = Art;
+export default Art;

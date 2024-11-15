@@ -1,6 +1,6 @@
 // modules
-const { userService, profileService } = require("../services");
-const { handleRequest } = require("../utils");
+import { userService, profileService } from "../services/index.js";
+import { handleRequest } from "../utils/index.js";
 
 // [GET] Onboarding
 const onboarding = async (req, res) => {
@@ -57,7 +57,7 @@ const profilePOST = async (req, res) => {
 };
 
 // exports
-module.exports = {
+export default {
     onboarding,
     profile,
 };

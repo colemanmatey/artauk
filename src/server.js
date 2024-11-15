@@ -1,7 +1,7 @@
 // modules
-const config = require("./config");
-const app = require("./app");
-const sequelize = require("./app/db"); // connect to database
+import config from "./config/index.js";
+import app from "./app/index.js";
+import sequelize from "./app/db.js";
 
 // start server
 app.listen(config.server.port, () => {
@@ -16,5 +16,5 @@ process.on("SIGINT", async () => {
 
 	console.log("Connection to the database closed.");
 	console.log("Server shutting down.");
-	process.exit(0); // Exit with a success code
+	process.exit(0);
 });
