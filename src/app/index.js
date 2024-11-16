@@ -6,6 +6,7 @@ import path from "path";
 import config from "../config/index.js";
 import routes from "../routes/index.js";
 import errorHandlers from "../middlewares/index.js";
+import { adminJs, adminRouter } from './admin.js';
 
 // configuration
 const app = express();
@@ -18,11 +19,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(session(config.session));
 
+
 // routes
 app.use("/", routes.home);
 app.use("/auth", routes.auth);
 app.use("/profile", routes.profile);
 app.use("/art", routes.art);
+
+// admin route
+app.use(adminJs.options.rootPath, adminRouter);
 
 // error handling
 app.use(errorHandlers.error404);
