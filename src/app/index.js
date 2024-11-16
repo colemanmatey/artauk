@@ -6,12 +6,15 @@ import path from "path";
 import config from "../config/index.js";
 import routes from "../routes/index.js";
 import errorHandlers from "../middlewares/index.js";
-import { adminJs, adminRouter } from './admin.js';
+import { adminJs, adminRouter } from "./admin.js";
 
 // configuration
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src", "views"));
+
+// admin site setup
+app.use(adminJs.options.rootPath, adminRouter);
 
 // middleware
 app.use(express.static(path.join(process.cwd(), "public")));
@@ -19,15 +22,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(session(config.session));
 
-
 // routes
 app.use("/", routes.home);
 app.use("/auth", routes.auth);
 app.use("/profile", routes.profile);
 app.use("/art", routes.art);
-
-// admin route
-app.use(adminJs.options.rootPath, adminRouter);
 
 // error handling
 app.use(errorHandlers.error404);
