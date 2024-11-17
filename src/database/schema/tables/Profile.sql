@@ -9,7 +9,7 @@
     [Phone] NVARCHAR(20) NULL,
     [Address] NVARCHAR(255) NULL,
     [City] NVARCHAR(100) NULL,
-    [State] NVARCHAR(100) NULL,
+    [Province] NVARCHAR(100) NULL,
     [PostalCode] NVARCHAR(20) NULL,
     [Country] NVARCHAR(100) NULL,
     [ProfilePicture] NVARCHAR(255) NULL, -- URL or path to user's profile picture

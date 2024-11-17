@@ -33,7 +33,7 @@ const profileSchema = {
 		type: DataTypes.STRING(100),
 		allowNull: true,
 	},
-	State: {
+	Province: {
 		type: DataTypes.STRING(100),
 		allowNull: true,
 	},

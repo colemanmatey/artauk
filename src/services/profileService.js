@@ -1,6 +1,7 @@
 // modules
 import { Profile, User } from "../models/index.js";
 
+
 // get profile by username
 const getProfileByUsername = async (username) => {
 	try {
@@ -25,7 +26,7 @@ const getProfileByUsername = async (username) => {
 };
 
 // create profile
-const createProfile = async (userid, data) => {
+const createProfile = async (userid, data, file) => {
 	const {
 		FirstName,
 		LastName,
@@ -33,12 +34,13 @@ const createProfile = async (userid, data) => {
 		Phone,
 		Address,
 		City,
-		State,
+		Province,
 		PostalCode,
 		Country,
-		ProfilePicture,
 		Bio,
 	} = data;
+
+	const ProfilePicture = file ? file.filename : null; // Check if file exists
 
 	try {
 		// Create a new profile
@@ -50,7 +52,7 @@ const createProfile = async (userid, data) => {
 			Phone,
 			Address,
 			City,
-			State,
+			Province,
 			PostalCode,
 			Country,
 			ProfilePicture,
