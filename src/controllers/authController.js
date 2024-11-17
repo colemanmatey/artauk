@@ -56,6 +56,7 @@ const loginPOST = async (req, res) => {
 		const profile = await profileService.getProfileByUsername(user.Username);
 
 		req.session.username = user.Username;
+		req.session.userID = user.UserID;
 
 		const context = {
 			title: "Login",

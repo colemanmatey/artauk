@@ -28,6 +28,10 @@ const artSchema = {
         type: DataTypes.STRING(255),
         allowNull: false, // URL or path
     },
+    isApproved: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+    },
     CreatedAt: {
         type: DataTypes.DATE,
         allowNull: false,

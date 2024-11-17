@@ -7,6 +7,10 @@ import Art from "./Art.js";
 User.hasOne(Profile, { foreignKey: "UserID" });
 Profile.belongsTo(User, { foreignKey: "UserID" });
 
+Profile.hasMany(Art, { foreignKey: "ProfileID" });
+Art.belongsTo(Profile, { foreignKey: "ProfileID" });
+
+
 // exports
 export {
 	User,
