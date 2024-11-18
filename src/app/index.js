@@ -17,7 +17,8 @@ app.set("views", path.join(process.cwd(), "src", "views"));
 app.use(adminJs.options.rootPath, adminRouter);
 
 // middleware
-app.use(express.static(path.join(process.cwd(), "public")));
+app.use("/public", express.static(path.join(process.cwd(), "public")));
+app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(session(config.session));

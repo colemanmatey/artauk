@@ -23,18 +23,43 @@ const createArt = async (profileID, data, file) => {
 	}
 };
 
+const getUserArtwork = async (profileID) => {
+    try {
+        // Fetch all artworks associated with the user
+        const artwork = await Art.findAll({
+            where: {
+                ProfileID: profileID,
+            },
+            order: [['createdAt', 'DESC']],
+        });
+
+        // If artwork exists, return it. Otherwise, return an empty array.
+        return artwork || [];
+    } catch (error) {
+        console.error("Error fetching artwork for user:", error);
+        throw new Error("Unable to fetch artwork");
+    }
+};
+
+
 // Define the AdminJS custom action to approve artwork
+// Approve a single artwork
 const approveArtwork = async (id) => {
-	const artwork = await Art.findByPk(id);
+	try {
+		const artwork = await Art.findByPk(id);
 
-	if (!artwork) {
-		return null; // Return null if the artwork does not exist
+		if (!artwork) {
+			return null; // Return null if the artwork does not exist
+		}
+
+		artwork.IsApproved = true; // Mark as approved
+		await artwork.save(); // Save changes to the database
+
+		return artwork; // Return the updated artwork
+	} catch (error) {
+		console.error("Error approving artwork:", error);
+		throw error;
 	}
-
-	artwork.approved = true; // Approve the artwork
-	await artwork.save(); // Save the updated artwork
-
-	return artwork; // Return the updated artwork
 };
 
 const approveMultipleArtworks = async (ids) => {
@@ -48,7 +73,7 @@ const approveMultipleArtworks = async (ids) => {
 
 	const updatedArtworks = [];
 	for (const artwork of artworks) {
-		artwork.approved = true;
+		artwork.IsApproved = true;
 		await artwork.save();
 		updatedArtworks.push(artwork);
 	}
@@ -61,4 +86,5 @@ export default {
 	createArt,
 	approveArtwork,
 	approveMultipleArtworks,
+	getUserArtwork
 };

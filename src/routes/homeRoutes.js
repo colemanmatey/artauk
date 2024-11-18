@@ -7,6 +7,7 @@ const router = express.Router();
 
 // routes
 router.get("/", homeController.homepage);
+router.get("/dashboard", homeController.dashboard);
 
 // exports
 export default router;
