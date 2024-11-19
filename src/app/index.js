@@ -6,15 +6,11 @@ import path from "path";
 import config from "../config/index.js";
 import routes from "../routes/index.js";
 import errorHandlers from "../middlewares/index.js";
-import { adminJs, adminRouter } from "./admin.js";
 
 // configuration
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src", "views"));
-
-// admin site setup
-app.use(adminJs.options.rootPath, adminRouter);
 
 // middleware
 app.use("/public", express.static(path.join(process.cwd(), "public")));
@@ -26,6 +22,7 @@ app.use(session(config.session));
 // routes
 app.use("/", routes.home);
 app.use("/auth", routes.auth);
+app.use("/admin", routes.admin);
 app.use("/profile", routes.profile);
 app.use("/art", routes.art);
 

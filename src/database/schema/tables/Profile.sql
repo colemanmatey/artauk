@@ -2,7 +2,6 @@
 (
     [ProfileID] INT NOT NULL PRIMARY KEY IDENTITY,
     [UserID] INT NOT NULL,
-    [RoleID] INT NULL,
     [FirstName] NVARCHAR(50) NOT NULL,
     [LastName] NVARCHAR(50) NOT NULL,
     [DateOfBirth] DATE NULL,
@@ -17,7 +16,6 @@
     [CreatedAt] DATETIME NOT NULL DEFAULT SYSUTCDATETIME(),
     [UpdatedAt] DATETIME NULL DEFAULT NULL,
     CONSTRAINT UQ_Profile_UserID UNIQUE (UserID),
-    CONSTRAINT FK_Profile_UserID FOREIGN KEY (UserID) REFERENCES [dbo].[User](UserID),
-    CONSTRAINT FK_Profile_RoleID FOREIGN KEY (RoleID) REFERENCES [dbo].[Role](RoleID)
+    CONSTRAINT FK_Profile_UserID FOREIGN KEY (UserID) REFERENCES [dbo].[User](UserID)
 )
 GO
