@@ -13,5 +13,12 @@ router.route("/")
 router.route("/logout")
 	.post(adminController.logout);
 
+router.route("/data/roles")
+	.get(adminController.roles)
+	.post(adminController.roles);
+
+router.route("/data/users")
+	.get(adminController.users)
+
 // exports
 export default router;

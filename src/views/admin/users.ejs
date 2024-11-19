@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+</head>
+<body class="sb-nav-fixed">
+    <%- include('./partials/topnav') %>
+    <div id="layoutSidenav">
+        <%- include('./partials/sidenav') %>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <h3 class="mt-4">Users</h3>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-user me-1"></i>
+                            List of Users
+                        </div>
+                        <div class="card-body">
+                            <table id="datatablesSimple" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Phone</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% users.forEach(user => { %>
+                                        <tr>
+                                            <td><%= user.dataValues.Username %></td>
+                                            <td><%= user.dataValues.Email %></td>                               
+                                            <td><%= user.Profile ? user.Profile.FirstName : '' %></td>
+                                            <td><%= user.Profile ? user.Profile.LastName : '' %></td>
+                                            <td><%= user.Profile ? user.Profile.Phone : '' %></td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <%- include('./partials/footer') %>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/public/vendors/sb-admin/js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="/public/vendors/sb-admin/assets/demo/chart-area-demo.js"></script>
+    <script src="/public/vendors/sb-admin/assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="/public/vendors/sb-admin/js/datatables-simple-demo.js"></script>
+</body>
+</html>

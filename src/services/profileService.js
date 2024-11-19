@@ -65,7 +65,24 @@ const createProfile = async (userid, data, file) => {
 	}
 };
 
+// Get users with profiles
+const getUsersWithProfiles = async () => {
+	try {
+		const users = await User.findAll({
+			include: {
+				model: Profile,
+				required: false,
+			},
+		});
+		return users;
+	} catch (error) {
+		console.error("Error retrieving users with profiles:", error);
+		throw error;
+	}
+};
+
 export default {
 	getProfileByUsername,
+	getUsersWithProfiles,
 	createProfile,
 };
