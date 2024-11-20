@@ -23,68 +23,94 @@ const createArt = async (profileID, data, file) => {
 	}
 };
 
-const getUserArtwork = async (profileID) => {
-    try {
-        // Fetch all artworks associated with the user
-        const artwork = await Art.findAll({
-            where: {
-                ProfileID: profileID,
-            },
-            order: [['createdAt', 'DESC']],
-        });
+const getAllArtwork = async () => {
+	try {
+		// Fetch all artwork
+		const artwork = await Art.findAll({
+			order: [["createdAt", "DESC"]],
+		});
 
-        // If artwork exists, return it. Otherwise, return an empty array.
-        return artwork || [];
-    } catch (error) {
-        console.error("Error fetching artwork for user:", error);
-        throw new Error("Unable to fetch artwork");
-    }
+		// If artwork exists, return it. Otherwise, return an empty array.
+		return artwork || [];
+	} catch (error) {
+		console.error("Error fetching artwork:", error);
+		throw new Error("Unable to fetch artwork");
+	}
 };
 
-
-// Define the AdminJS custom action to approve artwork
-// Approve a single artwork
-const approveArtwork = async (id) => {
+const getArtworkByStatus = async (status) => {
 	try {
-		const artwork = await Art.findByPk(id);
+		let filter;
 
-		if (!artwork) {
-			return null; // Return null if the artwork does not exist
+		// Handle the case where status is null
+		if (status === null) {
+			filter = { IsApproved: null };
+		} else {
+			// Handle the case where status is true or false
+			filter = { IsApproved: status };
 		}
 
-		artwork.IsApproved = true; // Mark as approved
-		await artwork.save(); // Save changes to the database
+		// Fetch all artworks associated with the user based on the approval status
+		const artwork = await Art.findAll({
+			where: filter,
+			order: [["createdAt", "DESC"]],
+		});
 
-		return artwork; // Return the updated artwork
+		// If artwork exists, return it. Otherwise, return an empty array.
+		return artwork || [];
 	} catch (error) {
-		console.error("Error approving artwork:", error);
-		throw error;
+		console.error("Error fetching artwork for user:", error);
+		throw new Error("Unable to fetch artwork");
 	}
 };
 
-const approveMultipleArtworks = async (ids) => {
-	const artworks = await Art.findAll({
-		where: { id: ids },
-	});
+const getUserArtworkByApprovalStatus = async (profileID, status) => {
+	try {
+		let filter;
 
-	if (!artworks.length) {
-		return null; // Return null if no artworks are found
+		// Handle the case where status is null
+		if (status === null) {
+			filter = { ProfileID: profileID, IsApproved: null };
+		} else {
+			// Handle the case where status is true or false
+			filter = { ProfileID: profileID, IsApproved: status };
+		}
+
+		// Fetch all artworks associated with the user based on the approval status
+		const artwork = await Art.findAll({
+			where: filter,
+			order: [["createdAt", "DESC"]],
+		});
+
+		// If artwork exists, return it. Otherwise, return an empty array.
+		return artwork || [];
+	} catch (error) {
+		console.error("Error fetching artwork for user:", error);
+		throw new Error("Unable to fetch artwork");
 	}
+};
 
-	const updatedArtworks = [];
-	for (const artwork of artworks) {
-		artwork.IsApproved = true;
+const setIsApproved = async (id, status) => {
+	try {
+		// Find the artwork by ID
+		const artwork = await Art.findByPk(id);
+
+		// Update the approval status
+		artwork.IsApproved = status;
+
+		// Save the updated artwork
 		await artwork.save();
-		updatedArtworks.push(artwork);
+	} catch (error) {
+		console.error("Error setting approval status:", error);
+		throw new Error("Unable to set approval status");
 	}
-
-	return updatedArtworks;
 };
 
 // module exports
 export default {
 	createArt,
-	approveArtwork,
-	approveMultipleArtworks,
-	getUserArtwork
+	getUserArtworkByApprovalStatus,
+	getAllArtwork,
+	getArtworkByStatus,
+	setIsApproved,
 };

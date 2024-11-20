@@ -20,5 +20,15 @@ router.route("/data/roles")
 router.route("/data/users")
 	.get(adminController.users)
 
+
+router.route("/data/artwork")
+	.get(adminController.artwork);
+
+router.route("/artwork/:id/approve")
+	.post(adminController.approveArtwork);
+
+router.route("/artwork/:id/reject")
+	.post(adminController.rejectArtwork);
+
 // exports
 export default router;

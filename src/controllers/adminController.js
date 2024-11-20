@@ -1,5 +1,5 @@
 // modules
-import { userService, profileService, roleService } from "../services/index.js";
+import { userService, profileService, roleService, artService } from "../services/index.js";
 import { handleRequest } from "../utils/index.js";
 
 // Login
@@ -75,8 +75,34 @@ const rolesPOST = async (req, res) => {
 const users = async (req, res) => {
 	if (req.session.admin) {
 		const users = await profileService.getUsersWithProfiles();
-		console.log(users);
 		res.render("admin/users", { users });
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+const artwork = async (req, res) => {
+	if (req.session.admin) {
+		const artwork = await artService.getArtworkByStatus(null); // get pending artwork only
+		res.render("admin/artwork", { artwork });
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+const approveArtwork = async (req, res) => {
+	if (req.session.admin) {
+		await artService.setIsApproved(req.params.id, true);
+		res.redirect("/admin/data/artwork");
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+const rejectArtwork = async (req, res) => {
+	if (req.session.admin) {
+		await artService.setIsApproved(req.params.id, false);
+		res.redirect("/admin/data/artwork");
 	} else {
 		res.redirect("/admin");
 	}
@@ -88,4 +114,7 @@ export default {
 	logout,
 	roles,
 	users,
+	artwork,
+	approveArtwork,
+	rejectArtwork,
 };

@@ -28,7 +28,7 @@ const artSchema = {
         type: DataTypes.STRING(255),
         allowNull: false, // URL or path
     },
-    isApproved: {
+    IsApproved: {
         type: DataTypes.BOOLEAN,
         allowNull: true,
     },
