@@ -38,6 +38,12 @@ const adminConfig = {
 	password: process.env.ADMIN_PASSWORD,
 };
 
+// role
+const roleConfig = {
+	roleName: process.env.ROLE_NAME,
+	roleDescription: process.env.ROLE_DESCRIPTION,
+};
+
 // exports
 export default {
 	db: dbConfig,
@@ -45,4 +51,5 @@ export default {
 	session: sessionConfig,
 	cookie: cookieConfig,
 	admin: adminConfig,
+	role: roleConfig,
 };

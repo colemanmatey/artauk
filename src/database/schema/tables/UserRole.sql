@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[UserRole]
+(
+	[UserRoleID] INT NOT NULL PRIMARY KEY IDENTITY,
+	[UserID] INT NOT NULL,
+	[RoleID] INT NOT NULL,
+	CONSTRAINT FK_UserRoles_UserID FOREIGN KEY (UserID) REFERENCES [dbo].[User](UserID),
+	CONSTRAINT FK_UserRoles_RoleID FOREIGN KEY (RoleID) REFERENCES [dbo].[Role](RoleID)
+
+)

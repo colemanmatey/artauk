@@ -1,5 +1,5 @@
 // modules
-import { userService, profileService } from  "../services/index.js";
+import { userService, profileService, userRoleService } from  "../services/index.js";
 import { handleRequest } from "../utils/index.js";
 
 // Register
@@ -21,7 +21,15 @@ const registerGET = (req, res) => {
 
 const registerPOST = async (req, res) => {
 	try {
-		await userService.createUser(req.body);
+		await userService.createUser(req.body)
+			.then((user) => {
+				// Default role for a new user
+				const roleID = 1;
+				userRoleService.createUserRole(user.UserID, roleID);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 		res.redirect("login");
 	} catch (err) {
 		let context = {

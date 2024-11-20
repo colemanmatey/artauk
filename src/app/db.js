@@ -1,7 +1,7 @@
 // modules
 import { Sequelize } from "sequelize";
 import config from "../config/index.js";
-import { userService } from "../services/index.js";
+import { userService, roleService } from "../services/index.js";
 
 // create connection
 const sequelize = new Sequelize(
@@ -25,6 +25,10 @@ const admin = {
 	password2: config.admin.password,
 };
 
+const role = {
+	roleName: config.role.roleName,
+	roleDescription: config.role.roleDescription,
+};
 
 // Establish the database connection
 sequelize
@@ -38,7 +42,8 @@ sequelize
 		// Create admin user
 		try {
 			// Check if the admin already exists
-			await userService.getUserByUsername(admin)
+			await userService
+				.getUserByUsername(admin)
 				.then(() => {
 					console.log("Admin user already exists. Skipping creation.");
 				})
@@ -46,9 +51,25 @@ sequelize
 					// If the admin doesn't exist, create the admin user
 					userService.createUser(admin);
 					console.log("Admin user created successfully.");
-				});;
+				});
 		} catch (error) {
 			console.error("Error creating admin user:", error);
+		}
+
+		// Create default role
+		try {
+			// Check if the role already exists
+			await roleService.getRoles().then((roles) => {
+				if (roles.length === 0) {
+					// If the role doesn't exist, create the role
+					roleService.createRole(role);
+					console.log("Default role created successfully.");
+				} else {
+					console.log("Default role already exists. Skipping creation.");
+				}
+			});
+		} catch (error) {
+			console.error("Error creating default role:", error);
 		}
 
 		// Log success message for sync
