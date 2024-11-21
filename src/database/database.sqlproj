@@ -73,6 +73,7 @@
     <Build Include="schema\tables\Profile.sql" />
     <Build Include="schema\tables\Role.sql" />
     <Build Include="schema\tables\Art.sql" />
+    <Build Include="schema\tables\UserRole.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="database.refactorlog" />

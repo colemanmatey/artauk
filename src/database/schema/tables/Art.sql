@@ -5,6 +5,7 @@
     [Year] INT NOT NULL,
     [Price] DECIMAL(10, 2) NOT NULL,
     [Artwork] NVARCHAR(255) NOT NULL,
+    [IsApproved] BIT NULL, 
     [CreatedAt] DATETIME NOT NULL DEFAULT SYSUTCDATETIME(), 
     [ProfileID] INT NOT NULL,
     CONSTRAINT FK_Art_ProfileID FOREIGN KEY (ProfileID) REFERENCES [dbo].[Profile](ProfileID)

@@ -1,5 +1,5 @@
 // modules
-import { userService, profileService } from  "../services/index.js";
+import { userService, profileService, userRoleService } from  "../services/index.js";
 import { handleRequest } from "../utils/index.js";
 
 // Register
@@ -21,7 +21,15 @@ const registerGET = (req, res) => {
 
 const registerPOST = async (req, res) => {
 	try {
-		await userService.createUser(req.body);
+		await userService.createUser(req.body)
+			.then((user) => {
+				// Default role for a new user
+				const roleID = 1;
+				userRoleService.createUserRole(user.UserID, roleID);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 		res.redirect("login");
 	} catch (err) {
 		let context = {
@@ -51,32 +59,29 @@ const loginGET = (req, res) => {
 };
 
 const loginPOST = async (req, res) => {
-	try {
-		const user = await userService.getUserByUsername(req.body);
-		const profile = await profileService.getProfileByUsername(user.Username);
+    try {
+        const user = await userService.getUserByUsername(req.body);
+        const profile = await profileService.getProfileByUsername(user.Username);
+        
+        req.session.username = user.Username;
+        req.session.userID = user.UserID;
 
-		req.session.username = user.Username;
-
-		const context = {
-			title: "Login",
-			user: req.session.username,
-		};
-
-		if (!profile) {
-			res.redirect("/profile/onboarding/user/" + user.UserID);
-		} else {
-			context.profile = profile.dataValues;
-			res.render("dashboard", context);
-		}
-	} catch (err) {
-		const context = {
-			title: "Login",
-			user: null,
-			error: err.message,
-		};
-		res.render("auth/login", context);
-	}
+        if (!profile) {
+            res.redirect("/profile/onboarding/user/" + user.UserID);
+        } else {
+			res.redirect("/dashboard");
+        }
+    } catch (err) {
+        const context = {
+            title: "Login",
+            user: null,
+            error: err.message,
+        };
+        res.render("auth/login", context);
+    }
 };
+
+
 
 // Logout
 const logout = (req, res, next) => {

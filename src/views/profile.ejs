@@ -11,7 +11,7 @@
     <main>
         <section>
             <h2>Create Profile</h2>
-            <form action="/profile/onboarding/user/<%= userID %>/new" method="post">
+            <form action="/profile/onboarding/user/<%= userID %>/new" method="post" enctype="multipart/form-data">
                 
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
@@ -44,8 +44,8 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="state">State:</label>
-                    <input type="text" id="state" name="State" maxlength="100">
+                    <label for="state">Province:</label>
+                    <input type="text" id="province" name="Province" maxlength="100">
                 </div>
         
                 <div class="form-group">
@@ -59,8 +59,8 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="profilePicture">Profile Picture URL:</label>
-                    <input type="url" id="profilePicture" name="ProfilePicture" maxlength="255">
+                    <label for="image">Upload image</label>
+                    <input type="file" id="profilePicture" name="ProfilePicture" >
                 </div>
         
                 <div class="form-group">
@@ -71,6 +71,7 @@
                 <div class="form-group">
                     <button type="submit">Submit Profile</button>
                 </div>
+            </form>
         </section>
     </main>
     

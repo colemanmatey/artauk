@@ -43,16 +43,9 @@ const profilePOST = async (req, res) => {
 	let user = await userService.getUserById(id);
 	const userID = user.dataValues.UserID;
 
-	const profile = await profileService.createProfile(userID, req.body);
+	await profileService.createProfile(userID, req.body, req.file);
 
-	let context = {
-		title: "Profile",
-		user: user.dataValues.Username,
-		userID: user.dataValues.UserID,
-		profile: profile.dataValues,
-	};
-
-	res.render("dashboard", context)
+	res.redirect("/dashboard");
 	
 };
 
