@@ -65,7 +65,7 @@ const rolesPOST = async (req, res) => {
 	if (req.session.admin) {
 		await roleService.createRole(req.body);
 
-		res.redirect("/admin/data/roles");
+		res.redirect("/admin/roles");
 	} else {
 		res.redirect("/admin");
 	}
@@ -81,10 +81,21 @@ const users = async (req, res) => {
 	}
 };
 
-const artwork = async (req, res) => {
+// [GET] All Artwork
+const allArtwork = async (req, res) => {
+	if (req.session.admin) {
+		const artwork = await artService.getAllArtwork();
+		res.render("admin/allArt", { artwork });
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+// [GET] Pending Artwork
+const pendingArtwork = async (req, res) => {
 	if (req.session.admin) {
 		const artwork = await artService.getArtworkByStatus(null); // get pending artwork only
-		res.render("admin/artwork", { artwork });
+		res.render("admin/pendingArt", { artwork });
 	} else {
 		res.redirect("/admin");
 	}
@@ -93,7 +104,7 @@ const artwork = async (req, res) => {
 const approveArtwork = async (req, res) => {
 	if (req.session.admin) {
 		await artService.setIsApproved(req.params.id, true);
-		res.redirect("/admin/data/artwork");
+		res.redirect("/admin/artwork/pending");
 	} else {
 		res.redirect("/admin");
 	}
@@ -102,7 +113,7 @@ const approveArtwork = async (req, res) => {
 const rejectArtwork = async (req, res) => {
 	if (req.session.admin) {
 		await artService.setIsApproved(req.params.id, false);
-		res.redirect("/admin/data/artwork");
+		res.redirect("/admin/artwork/pending");
 	} else {
 		res.redirect("/admin");
 	}
@@ -114,7 +125,8 @@ export default {
 	logout,
 	roles,
 	users,
-	artwork,
+	allArtwork,
+	pendingArtwork,
 	approveArtwork,
 	rejectArtwork,
 };

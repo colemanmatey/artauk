@@ -10,7 +10,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h3 class="mt-4">Artwork</h3>
+                    <h3 class="mt-4">Artwork - All Submitted Artwork</h3>
 
                     <div class="card mb-4">
                         <div class="card-header">
@@ -26,7 +26,7 @@
                                         <th>Price</th>
                                         <th>File</th>
                                         <th>Date Submitted</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,14 +40,13 @@
                                                 <td><%= art.Price %></td>
                                                 <td><%= art.Artwork %></td>
                                                 <td class="createdAtCell"><%= art.CreatedAt %></td>
-                                                <td>
-                                                     <form class="d-inline" action="/admin/artwork/<%= art.ArtID %>/approve" method="post">
-                                                        <input type="submit" class="btn btn-success" value="Approve" />
-                                                     </form>
-                                                     <form class="d-inline" action="/admin/artwork/<%= art.ArtID %>/reject" method="post">
-                                                        <input type="submit" class="btn btn-danger" value="Reject" />
-                                                     </form>
-                                                </td>
+                                                <% if (art.IsApproved == true) { %>     
+                                                    <td class="text-success">Approved</td>
+                                                <% } else if (art.IsApproved == false) { %>
+                                                    <td class="text-danger">Rejected</td>
+                                                <% } else { %>
+                                                    <td class="text-warning">Pending</td>
+                                                <% } %>
                                             </tr>
                                         <% }) %>
                                     <% } else { %>

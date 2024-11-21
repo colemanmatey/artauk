@@ -21,20 +21,20 @@
                             <table id="datatablesSimple" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Username</th>
-                                        <th>Email</th>
+                                        <th>S/N</th>
                                         <th>FirstName</th>
                                         <th>LastName</th>
+                                        <th>Email</th>
                                         <th>Phone</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% users.forEach(user => { %>
+                                    <% users.forEach((user, index) => { %>
                                         <tr>
-                                            <td><%= user.dataValues.Username %></td>
-                                            <td><%= user.dataValues.Email %></td>                               
+                                            <td><%= index + 1 %></td>
                                             <td><%= user.Profile ? user.Profile.FirstName : '' %></td>
                                             <td><%= user.Profile ? user.Profile.LastName : '' %></td>
+                                            <td><%= user.dataValues.Email %></td>                               
                                             <td><%= user.Profile ? user.Profile.Phone : '' %></td>
                                         </tr>
                                     <% }) %>

@@ -13,16 +13,18 @@ router.route("/")
 router.route("/logout")
 	.post(adminController.logout);
 
-router.route("/data/roles")
+router.route("/roles")
 	.get(adminController.roles)
 	.post(adminController.roles);
 
-router.route("/data/users")
+router.route("/users")
 	.get(adminController.users)
 
+router.route("/artwork/all")
+	.get(adminController.allArtwork);
 
-router.route("/data/artwork")
-	.get(adminController.artwork);
+router.route("/artwork/pending")
+	.get(adminController.pendingArtwork);
 
 router.route("/artwork/:id/approve")
 	.post(adminController.approveArtwork);
