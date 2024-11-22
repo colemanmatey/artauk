@@ -105,8 +105,8 @@ body {
 }
 
 .discover-art {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-		url("/public/images/discover-art.jpg"); /* Dark overlay */
+	background-image: linear-gradient(rgba(0, 0, 0, 0.347), rgba(0, 0, 0, 0.7)),
+		url("/public/images/showcase-hero.jpg"); /* Dark overlay */
 	background-size: cover;
 	background-position: center;
 	color: white;
@@ -184,7 +184,7 @@ body {
 
 .feature-card {
 	background-color: white;
-	padding: 30px;
+	padding: 70px;
 	border-radius: 10px;
 	width: 30%;
 	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
@@ -452,6 +452,136 @@ footer {
 
 .signup-prompt a:hover {
 	color: var(--accent);
+}
+
+/* Sign-Up Page Styles */
+.signup-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url("/public/images/discover-art.jpg"); /* Dark overlay */
+	background-size: cover;
+	background-position: center;
+	padding: 10px;
+	background-color: var(--primary);
+}
+
+.form-section {
+	background-color: white;
+	padding: 40px;
+	border-radius: 10px;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 450px;
+	text-align: center;
+}
+
+.signup-heading {
+	font-size: 2rem;
+	color: var(--accent);
+	margin-bottom: 30px;
+	font-weight: 600;
+}
+
+.input-group {
+	margin-bottom: 20px;
+	text-align: left;
+	width: 100%;
+}
+
+.input-group label {
+	font-size: 1rem;
+	color: var(--neutral);
+	margin-bottom: 5px;
+	display: block;
+}
+
+.input-group input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid var(--neutral);
+	border-radius: 5px;
+	font-size: 1rem;
+	color: var(--neutral);
+	background-color: var(--primary);
+	transition: border-color 0.3s ease-in-out;
+}
+
+.input-group input:focus {
+	border-color: var(--accent);
+	outline: none;
+}
+
+.error-message {
+	background-color: #f8d7da;
+	color: #721c24;
+	padding: 10px;
+	border-radius: 5px;
+	margin-bottom: 20px;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.submit-group {
+	margin-top: 20px;
+}
+
+.btn-submit {
+	width: 100%;
+	padding: 14px;
+	font-size: 1.2rem;
+	background-color: var(--secondary);
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.btn-submit:hover {
+	background-color: var(--accent);
+}
+
+.signup-prompt {
+	margin-top: 20px;
+	font-size: 1rem;
+}
+
+.signup-prompt a {
+	color: var(--secondary);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.signup-prompt a:hover {
+	color: var(--accent);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile (<= 767px) */
+@media (max-width: 767px) {
+	.signup-page {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.form-section {
+		width: 90%;
+	}
+}
+
+/* Tablet (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+	.signup-page {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.form-section {
+		width: 90%;
+	}
 }
 
 /* Media Queries for Responsiveness */
