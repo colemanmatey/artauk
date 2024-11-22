@@ -1,322 +1,198 @@
-/* Global Styles */
+/* General Styles */
 body {
-	font-family: "Arial", sans-serif;
-	margin: 0;
-	padding: 0;
-	background-color: #f4f4f4;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
 }
 
-/* Header */
-header {
-	background-color: rgba(255, 255, 255, 0.9);
-	padding: 5px; /* Reduced padding */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-bottom: 1px solid #eaeaea;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-	display: flex;
-	align-items: center;
-}
-
-.logo img {
-	width: 175px; /* Increased size */
-	height: auto; /* Maintain aspect ratio */
-}
-
-.auth-buttons {
-	display: flex; /* Align buttons horizontally */
-	gap: 10px; /* Space between buttons */
-}
-
-.sign-in,
-.home-btn,
-.register-btn {
-	/* Add register-btn here */
-	background-color: #505050; /* Dark grey */
-	text-decoration: none;
-	color: #fff;
-	border: none;
-	padding: 10px 20px;
-	font-size: 16px;
-	cursor: pointer;
-	border-radius: 5px;
-	transition:
-		background-color 0.3s ease,
-		transform 0.3s ease; /* Added transition */
-}
-
-.sign-in:hover,
-.home-btn:hover,
-.register-btn:hover {
-	/* Add hover effects for register button */
-	background-color: #404040; /* Darker grey on hover */
-	transform: scale(1.05); /* Scale up on hover */
-}
-
-/* Main Layout */
 main {
-	display: flex;
-	padding: 40px;
-	max-width: 1200px;
-	margin: auto;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 20px;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(20px); /* Slide in from below */
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+/* Fullscreen Hero Section */
+.hero-section {
+    position: relative;
+    background: url('/public/images/mountain.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
 }
 
-/* Background for the login page */
-.login-page {
-	background-image: url("../images/mountain.jpg"); /* Change this to your background image path */
-	background-size: cover; /* Cover the entire area */
-	background-position: center; /* Center the image */
-	min-height: 72vh; /* Full height of the viewport */
-	display: flex;
-	justify-content: center;
-	align-items: center; /* Center content vertically */
+.hero-content {
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
 }
 
-/* Login Section */
-.login-section {
-	width: 2500px; /* Adjusted width */
-	max-width: 50%; /* Make it responsive */
-	background-color: rgba(
-		255,
-		255,
-		255,
-		0.9
-	); /* Slightly transparent white background */
-	padding: 30px; /* Adjust padding for better spacing */
-	border-radius: 10px; /* Rounded corners */
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Shadow effect */
-	animation: fadeIn 2s ease; /* Fade-in effect */
-	display: flex;
-	flex-direction: column; /* Stack elements vertically */
-	justify-content: center; /* Center content vertically */
-	margin-left: 20px; /* Gap between sections */
-	margin-top: 20px; /* Add margin at the top for spacing */
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
 }
 
-/* Left Section for Home Page */
-.left-section {
-	width: 1000px; /* Increased width of left section */
-	background: url("../images/1.jpg") no-repeat center center; /* Background image on the left side */
-	background-size: cover;
-
-	animation: fadeIn 1s ease; /* Fade-in effect */
-	/* Animation for background */
-	animation: moveBackground 20s linear infinite; /* Added background animation */
-	margin: 0; /* Remove margins */
-	padding: 0; /* Remove padding */
-}
-
-/* Background Animation */
-@keyframes moveBackground {
-	0% {
-		background-position: 0 0;
-	}
-	100% {
-		background-position: 100% 0;
-	}
-}
-
-.artauk-box {
-	background-color: rgba(
-		51,
-		51,
-		51,
-		0.8
-	); /* Dark background for better contrast */
-	color: #fff;
-	padding: 20px;
-	border-radius: 5px;
-	margin-top: 30px;
-	text-align: center;
-}
-
-.artauk-text {
-	font-size: 30px;
-	font-weight: bold;
-	letter-spacing: 5px;
-}
-
-.artauk-box p {
-	font-size: 18px;
-	margin: 20px 0;
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
 }
 
 .explore-btn {
-	background-color: #ff6f61; /* Bright button */
-	color: white;
-	border: none;
-	padding: 12px;
-	font-size: 18px;
-	font-weight: bold;
-	cursor: pointer;
-	border-radius: 8px;
-	transition:
-		background-color 0.3s ease,
-		transform 0.3s ease;
+    padding: 12px 30px;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
 }
 
 .explore-btn:hover {
-	background-color: #e65c55;
-	transform: scale(1.05);
+    background-color: #f57c00;
 }
 
-/* Right Section for Form */
-.right-section {
-	width: 1000px;
-	background-color: rgba(255, 255, 255, 0.9);
-	padding: 40px;
-	border-radius: 10px; /* Rounded corners */
-	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-
-	animation: fadeIn 1s ease;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin-left: 20px;
+/* Feature Section */
+.feature-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
 }
 
-form {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	align-items: center; /* Center the content */
+.feature-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-label {
-	font-size: 16px;
-	margin-bottom: 8px;
-	color: #333;
-	align-self: flex-start; /* Align label to start */
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
 }
 
-input[type="text"],
-input[type="username"],
-input[type="email"],
-input[type="password"] {
-	width: 100%;
-	padding: 15px;
-	margin-bottom: 20px;
-	border: 1px solid #bbb;
-	border-radius: 5px;
-	font-size: 16px;
-	transition:
-		border-color 0.3s ease,
-		box-shadow 0.3s ease; /* Transition for input fields */
+.feature-card {
+    background: #f1f1f1;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
 }
 
-/* Hover effect for input fields */
-input[type="text"]:hover,
-input[type="username"]:hover,
-input[type="email"]:hover,
-input[type="password"]:hover {
-	border-color: #4caf50;
+.feature-card:hover {
+    transform: translateY(-10px);
 }
 
-input[type="text"]:focus,
-input[type="username"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-	border-color: #4caf50;
-	box-shadow: 0 0 5px rgba(100, 200, 100, 0.5);
+.feature-card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ff9800;
 }
 
-/* Register Button */
-.register {
-	background-color: #505050; /* Dark grey */
-	color: white;
-	border: none;
-	padding: 12px;
-	font-size: 18px;
-	font-weight: bold;
-	cursor: pointer;
-	border-radius: 8px;
-	margin-top: 20px;
-	width: 100%;
-	text-align: center;
-	transition:
-		background-color 0.3s ease,
-		transform 0.3s ease;
+.feature-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
 }
 
-/* Hover effect for the register button */
-.register:hover {
-	background-color: #404040;
-	transform: scale(1.05);
+.feature-card p {
+    font-size: 1.1rem;
+    color: #555;
 }
 
-/* Checkbox */
-.checkbox-container {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
+/* How It Works Section */
+.how-it-works {
+    background-color: #ff9800;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
 }
 
-.checkbox-container input[type="checkbox"] {
-	margin-right: 10px;
+.how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.how-it-works ol {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Join the Community Section */
+.join-section {
+    padding: 60px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.join-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.join-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.join-section button {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background-color: #ff9800;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.join-section button:hover {
+    background-color: #f57c00;
 }
 
 /* Footer */
 footer {
-	background-color: rgba(255, 255, 255, 0.8);
-	padding: 10px;
-	text-align: center;
-	color: #666;
-	border-top: 2px solid #eaeaea;
-	font-size: 14px;
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-	main {
-		flex-direction: column;
-		padding: 20px;
-	}
-
-	.left-section,
-	.right-section {
-		width: 100%;
-		margin-bottom: 30px;
-	}
-
-	form {
-		padding: 20px;
-	}
-}
-/* Custom styles for login page headings */
-.welcome-heading,
-.login-heading {
-	font-family: "Sugar Magic", cursive; /* Apply Sugar Magic font */
-	font-weight: bold;
-	text-align: center;
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* Centering the login section */
-.right-section {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+footer ul li {
+    margin: 0 15px;
 }
 
-.error-message {
-	color: red;
+footer ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+footer ul li a:hover {
+    color: #ff9800;
 }

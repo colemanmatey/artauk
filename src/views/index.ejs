@@ -2,25 +2,260 @@
 <html lang="en">
 <head>
     <%- include("./partials/head") %>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        main {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        /* Fullscreen Hero Section */
+        .hero-section {
+            position: relative;
+            background: url('/public/images/mountain.jpg') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+        }
+
+        .explore-btn {
+            padding: 12px 30px;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .explore-btn:hover {
+            background-color: #f57c00;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .feature-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: #f1f1f1;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ff9800;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .how-it-works ol {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Join the Community Section */
+        .join-section {
+            padding: 60px 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .join-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .join-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .join-section button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            background-color: #ff9800;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .join-section button:hover {
+            background-color: #f57c00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        footer ul li {
+            margin: 0 15px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        footer ul li a:hover {
+            color: #ff9800;
+        }
+    </style>
 </head>
 <body>
     <%- include("./partials/header") %>
     <%- include("./partials/nav") %>
-    
-    <!-- Content -->
-    <main>
-        <section class="left-section">
-            <div class="artauk-box">
-                <span class="artauk-text">Welcome to Artauk</span>
-                <p>Your trusted art auction platform where creativity meets opportunity. Explore or auction now!</p>
-                <button class="explore-btn">Explore Auctions</button>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to Artauk</h1>
+            <p>Your trusted platform where creativity meets opportunity. Explore exclusive artworks, join live auctions, and own unique masterpieces.</p>
+            <button class="explore-btn">Explore Auctions</button>
+        </div>
+    </section>
+
+    <!-- Feature Section -->
+    <section class="feature-section">
+        <h2>Why Choose Artauk?</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Exclusive Artworks</h3>
+                <p>Browse and bid on unique, curated collections of art from top artists around the world.</p>
             </div>
-        </section>
-    </main>
-    
-    <!-- Sidebar -->
-    <aside></aside>
-    
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure Transactions</h3>
+                <p>We offer a safe and secure environment for your art transactions, with verified bidding.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-globe"></i>
+                <h3>Global Reach</h3>
+                <p>Join an international community of art lovers and collectors. Bid from anywhere in the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How Bidding Works</h2>
+        <ol>
+            <li>Browse our curated collection of art.</li>
+            <li>Place a bid on the artwork you love.</li>
+            <li>Wait for the auction to end and secure your winning bid.</li>
+            <li>Receive your exclusive artwork and enjoy your new piece.</li>
+        </ol>
+    </section>
+
+    <!-- Join the Community Section -->
+    <section class="join-section">
+        <h2>Join the Artauk Community</h2>
+        <p>Become a part of our growing community of art lovers, collectors, and creators. Start bidding today and own a piece of history!</p>
+        <button>Join Now</button>
+    </section>
+
     <%- include("./partials/footer") %>
 </body>
 </html>

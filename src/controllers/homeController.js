@@ -56,10 +56,29 @@ const dashboard = async (req, res) => {
 	  res.render("auth/login", context);
 	}
   };
+
+
+// [GET] Showcase
+const showcase = async (req, res) => {
+	let user = null;
+
+	const allArtwork = await artService.getArtworkByStatus(true);
+
+	if (req.session.username) {
+		user = req.session.username;	}
+
+	let context = {
+		title: "Showcase",
+		user: user,
+		artwork: allArtwork,
+	};
+	res.render("showcase", context);
+};
   
 
 // exports
 export default {
 	homepage,
 	dashboard,
+	showcase,
 };
