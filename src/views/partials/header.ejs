@@ -1,27 +1,21 @@
-<header>
+<header class="site-header">
     <!-- Logo -->
     <div class="logo">
         <a href="/"><img src="/public/images/logo.png" alt="Artauk Logo"></a>
     </div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="/explore/showcase">Explore</a></li>
-            <li><a href="#">Auctions</a></li>
-        </ul>
-    </nav>
+    <%- include("./nav") %>
 
     <!-- Auth Buttons -->
     <div class="auth-buttons">
         <% if (user != null) { %>
-            <!-- User Logged In: Show Profile Picture and Username Dropdown -->
             <div class="profile-menu">
                 <div class="profile-picture">
                     <img src="/uploads/profiles/<%= user.profilePicture %>" alt="Profile Picture">
                 </div>
-                <div class="username" onclick="toggleDropdown()">
-                    <span><%= user.username %></span>
+                <div>
+                    <span class="username"><%= user.username %></span>
                     <div class="dropdown-menu">
                         <a href="/profile">Profile</a>
                         <a href="/dashboard">Dashboard</a>
@@ -32,25 +26,8 @@
                 </div>
             </div>
         <% } else { %>
-            <!-- User Not Logged In: Show Login and Register Buttons -->
             <a href="/auth/login" class="sign-in">Sign In</a>
             <a href="/auth/register" class="register-btn">Register</a>
         <% } %>
     </div>
-    
-    <script>
-        function toggleDropdown() {
-            const usernameElement = document.querySelector('.username');
-            usernameElement.classList.toggle('active');
-        }
-    
-        document.addEventListener('click', function(event) {
-            const usernameElement = document.querySelector('.username');
-            const dropdown = document.querySelector('.dropdown-menu');
-            
-            if (!usernameElement.contains(event.target)) {
-                usernameElement.classList.remove('active');
-            }
-        });
-    </script>
 </header>

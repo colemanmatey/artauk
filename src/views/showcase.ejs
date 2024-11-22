@@ -1,223 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <%- include("./partials/head") %>
-
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f8f8f8;
-            color: #333;
-        }
-
-        /* Hero Section */
-        .hero-section-explore {
-            background: url('/public/images/11.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-            background-attachment: fixed;
-        }
-
-        .hero-section-explore::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            font-weight: bold;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            font-style: italic;
-        }
-
-        /* Help Section (for explaining the page) */
-        .help-section {
-            background-color: #f0f0f0;
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        .help-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .help-section p {
-            font-size: 1.2rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .help-section a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .help-section a:hover {
-            text-decoration: underline;
-        }
-
-        /* Artwork Gallery */
-        .artwork-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 40px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .art-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            background-color: #fff;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .art-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-            border-radius: 15px;
-        }
-
-        .art-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .art-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Overlay for Artwork Info */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            opacity: 0;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            transition: opacity 0.3s ease;
-        }
-
-        .art-item:hover .overlay {
-            opacity: 1;
-        }
-
-        .overlay h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .overlay p {
-            font-size: 1rem;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .artwork-gallery {
-                padding: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- include("./partials/header") %>
-    <%- include("./partials/nav") %>
-    
-    <!-- Content -->
-    <!-- Hero Section -->
-    <section class="hero-section-explore">
-        <div class="hero-content">
-            <h1>Discover Art</h1>
-            <p>Step into a world of creativity and bid on exclusive artworks from renowned artists.</p>
-        </div>
-    </section>
-
-    <!-- Help Section (Explaining What This Page Is About) -->
-    <section class="help-section">
-        <h2>Welcome to the Art Gallery</h2>
-        <p>
-            Explore a curated selection of exclusive artworks from various renowned artists. Each piece tells a unique story, and you have the opportunity to purchase or place bids on pieces that captivate your imagination.
-        </p>
-        <p>
-            Our platform allows you to browse, bid, and discover the world of art in an intuitive and secure environment.
-        </p>
-        <p>
-            <a href="#how-it-works">Learn more about how it works</a>
-        </p>
-    </section>
-
-    <!-- Artwork Gallery -->
-    <section class="artwork-gallery">
-        <% artwork.forEach(art => { %>
-            <div class="art-item">
-                <img src="/uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>">
-                <div class="overlay">
-                    <h3><%= art.Title %></h3>
-                    <p>Artist: <%= art.Artist %></p>
-                </div>
+    <main>
+        <!-- Hero Section (Discover Art) -->
+        <section class="discover-art">
+            <div class="hero-content">
+                <h1>Discover Art</h1>
+                <p>Explore a curated collection of amazing artworks from talented artists around the world.</p>
+                <a href="#" class="explore-btn">Go to Auctions</a>
             </div>
-        <% }); %>
-    </section>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="showcase-section">
+            <h2>Browse</h2>
+            <div class="artwork-gallery">
+                <% artwork.forEach(art => { %>
+                    <div class="artwork-item">
+                        <img src="/uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>" class="artwork-image">
+                        <div class="artwork-info">
+                            <h3><%= art.Title %></h3>
+                            <p><%= art.Artist %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
 
     <%- include("./partials/footer") %>
 </body>
