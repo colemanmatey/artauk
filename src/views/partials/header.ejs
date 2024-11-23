@@ -10,17 +10,17 @@
     <!-- Auth Buttons -->
     <div class="auth-buttons">
         <% if (user != null) { %>
-            <div class="profile-menu">
-                <div class="profile-picture">
-                    <img src="/uploads/profiles/<%= user.profilePicture %>" alt="Profile Picture">
-                </div>
-                <div>
-                    <span class="username"><%= user.username %></span>
-                    <div class="dropdown-menu">
+            <div class="user-profile">
+                <a href="profilelogin.html">
+                    <img class="profile-pic" src="/uploads/profile/<%= profile.ProfilePicture %>" alt="User Profile" class="profile-pic">
+                </a>
+                <div class="username-dropdown">
+                    <span class="username"><%= user %></span>
+                    <div class="dropdown-content">
                         <a href="/profile">Profile</a>
                         <a href="/dashboard">Dashboard</a>
                         <form action="/auth/logout" method="post" class="logout-form">
-                            <input type="submit" value="Logout" class="logout-btn">
+                            <input class="logout" type="submit" value="Logout" class="logout-btn">
                         </form>
                     </div>
                 </div>

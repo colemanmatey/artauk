@@ -4,14 +4,17 @@ import { userService, profileService, artService } from "../services/index.js";
 // [GET] Homepage
 const homepage = async (req, res) => {
 	let user = null;
+	let profile = null;
 
 	if (req.session.username) {
 		user = req.session.username;
+		profile = await profileService.getProfileByUsername(user);
 	}
 
 	let context = {
 		title: "Homepage",
 		user: user,
+		profile: profile,
 	};
 	res.render("index", context);
 };
@@ -61,15 +64,19 @@ const dashboard = async (req, res) => {
 // [GET] Showcase
 const showcase = async (req, res) => {
 	let user = null;
+	let profile = null;
 
 	const allArtwork = await artService.getArtworkByStatus(true);
 
 	if (req.session.username) {
-		user = req.session.username;	}
+		user = req.session.username;
+		profile = await profileService.getProfileByUsername(user);
+	}
 
 	let context = {
 		title: "Showcase",
 		user: user,
+		profile: profile,
 		artwork: allArtwork,
 	};
 	res.render("showcase", context);

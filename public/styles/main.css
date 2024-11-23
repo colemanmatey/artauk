@@ -93,6 +93,74 @@ body {
 	border-radius: 5px;
 }
 
+/* Profile menu */
+.user-profile {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 70%;
+}
+
+.username-dropdown {
+    position: relative;
+}
+
+.username {
+    font-weight: bold;
+    color: #333;
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 55px;
+}
+
+/* Dropdown Content */
+/* Dropdown menu for user options (Profile, Dashboard, Logout) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #ffffff;
+    min-width: 130px;
+    border: 5px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.dropdown-content a,
+.dropdown-content form input[type="submit"] {
+    color: #333;
+	background-color: white;
+    padding: 10px;
+    text-decoration: none;
+	text-align:left;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f4f4f4;
+}
+
+.dropdown-content form input[type="submit"] {
+	border: none;
+}
+
+/* Show dropdown on hover */
+.username:hover + .dropdown-content,
+.dropdown-content:hover {
+    display: block;
+}
+
 /* Hero Section Styles */
 .hero-section {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -292,49 +360,50 @@ body {
 }
 
 .artwork-gallery {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	gap: 30px;
-	justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Automatically fill as many columns as possible, with minimum width of 150px per card */
+    gap: 10px; /* Adjust the space between cards */
+    justify-items: center; /* Center the items inside the grid */
 }
 
 .artwork-item {
-	background-color: white;
-	border-radius: 10px;
-	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-	overflow: hidden;
-	width: 100%;
-	max-width: 300px;
-	text-align: center;
-	transition: transform 0.3s ease-in-out;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%; /* Ensures it fills the grid cell */
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
 
 .artwork-item:hover {
-	transform: translateY(-10px);
+    transform: translateY(-10px);
 }
 
 .artwork-image {
-	width: 100%;
-	height: 200px;
-	object-fit: cover;
-	border-bottom: 2px solid var(--neutral);
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--neutral);
 }
+
 .artwork-info {
-	padding: 15px;
+    padding: 15px;
 }
 
 .artwork-info h3 {
-	font-size: 1.5rem;
-	color: var(--neutral);
-	margin-bottom: 10px;
-	font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--neutral);
+    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .artwork-info p {
-	font-size: 1rem;
-	color: var(--neutral);
-	margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--neutral);
+    margin-bottom: 15px;
 }
+
 
 /* Footer Styles */
 footer {

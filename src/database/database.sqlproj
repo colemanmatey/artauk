@@ -74,6 +74,8 @@
     <Build Include="schema\tables\Role.sql" />
     <Build Include="schema\tables\Art.sql" />
     <Build Include="schema\tables\UserRole.sql" />
+    <Build Include="schema\tables\Auction.sql" />
+    <Build Include="schema\tables\AuctionArt.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="database.refactorlog" />

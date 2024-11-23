@@ -32,5 +32,9 @@ router.route("/artwork/:id/approve")
 router.route("/artwork/:id/reject")
 	.post(adminController.rejectArtwork);
 
+router.route("/auctions")
+	.get(adminController.auctions)
+	.post(adminController.auctions);
+
 // exports
 export default router;
