@@ -5,44 +5,51 @@
 </head>
 <body>
     <%- include("../partials/header") %>
-    <%- include("../partials/nav") %>
-   
-    <!-- Content -->
-    <main>
-        <section class="left-section">
-            <div class="artauk-box">
-                <span class="artauk-text">Artauk</span>
-            </div>
-        </section>
 
-        <section class="right-section">
+    <!-- Content -->
+    <main class="signup-page">
+        <section class="form-section">
+            <h1 class="signup-heading">Create Your Account</h1>
+
             <% if (error) { %>
                 <div class="error-message">
                     <p><%= error %></p>
                 </div>
             <% } %>
-            <form action="/auth/register" method="post">
-                <label for="">Username:</label>
-                <input type="text" name="username" id="username" required>
-                
-                <label for="">Email:</label>
-                <input type="email" name="email" id="email" required>
-                
-                <label for="">Password:</label>
-                <input type="password" name="password" id="password" required>
-                
-                <label for="">Confirm password:</label>
-                <input type="password" name="password2" id="password2" required>
-                
-                <input class="register" type="submit" value="Register">
+
+            <form action="/auth/register" method="post" class="signup-form">
+                <div class="input-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" placeholder="Enter your email" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" required />
+                </div>
+
+                <div class="input-group">
+                    <label for="password2">Confirm Password:</label>
+                    <input type="password" name="password2" id="password2" placeholder="Confirm your password" required />
+                </div>
+
+                <div class="submit-group">
+                    <input type="submit" value="Register" class="btn-submit" />
+                </div>
             </form>
+
             <p class="signup-prompt">Already have an account? <a href="/auth/login">Sign in!</a></p>
         </section>
     </main>
-        
+
     <!-- Sidebar -->
     <aside></aside>
-        
+
     <%- include("../partials/footer") %>
 </body>
 </html>

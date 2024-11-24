@@ -4,14 +4,17 @@ import { userService, profileService, artService } from "../services/index.js";
 // [GET] Add new art
 const addNew = async (req, res) => {
     let user = null;
+    let profile = null;
 
     if (req.session.username) {
         user = req.session.username;
+        profile = await profileService.getProfileByUsername(user);
     }
 
     let context = {
         title: "Add New Art",
         user: user,
+        profile: profile
     };
     res.render("addart", context);
 };

@@ -1,5 +1,5 @@
 // modules
-import { userService, profileService, roleService, artService } from "../services/index.js";
+import { userService, profileService, roleService, artService, auctionService } from "../services/index.js";
 import { handleRequest } from "../utils/index.js";
 
 // Login
@@ -119,6 +119,36 @@ const rejectArtwork = async (req, res) => {
 	}
 };
 
+
+// Roles
+const auctions = (req, res, next) => {
+	handleRequest(req, res, next, {
+		GET: auctionsGET,
+		POST: auctionsPOST,
+	});
+};
+
+// [GET] Roles
+const auctionsGET = async (req, res) => {
+	if (req.session.admin) {
+		const auctions = await auctionService.getAllAuctions();
+		res.render("admin/auctions", { auctions });
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+// [POST] Roles
+const auctionsPOST = async (req, res) => {
+	if (req.session.admin) {
+		await auctionService.createAuction(req.body);
+		res.redirect("/admin/auctions");
+	} else {
+		res.redirect("/admin");
+	}
+};
+
+
 // exports
 export default {
 	login,
@@ -129,4 +159,5 @@ export default {
 	pendingArtwork,
 	approveArtwork,
 	rejectArtwork,
+	auctions,
 };

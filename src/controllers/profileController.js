@@ -12,6 +12,7 @@ const onboarding = async (req, res) => {
 		title: "Onboarding",
 		user: user.dataValues.Username,
 		userID: user.dataValues.UserID,
+		profile: null,
 	};
 	res.render("onboarding", context);
 };
@@ -33,8 +34,9 @@ const profileGET = async (req, res) => {
 		title: "Onboarding",
 		user: user.dataValues.Username,
 		userID: user.dataValues.UserID,
+		profile: null,
 	};
-	res.render("profile", context);
+	res.render("profileform", context);
 };
 
 const profilePOST = async (req, res) => {
