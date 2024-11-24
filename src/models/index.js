@@ -4,6 +4,7 @@ import Profile from "./Profile.js";
 import Art from "./Art.js";
 import Role from "./Role.js";
 import UserRole from "./UserRole.js";
+import Auction from "./Auction.js";
 
 // associations
 User.hasOne(Profile, { foreignKey: "UserID" });
@@ -23,4 +24,4 @@ Role.belongsToMany(User, {
 });
 
 // exports
-export { User, Profile, Art, Role, UserRole };
+export { User, Profile, Art, Role, UserRole, Auction };
