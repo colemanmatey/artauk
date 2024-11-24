@@ -2,198 +2,77 @@
 <html lang="en">
 <head>
     <%- include("./partials/head") %>
-    <link rel="stylesheet" href="/public/styles/style2.css" />
-    <style>
-        
-        /* Sidebar */
-        .sidebar {
-            width: 240px;
-            background-color: #2c3e50;  /* Deep Blue-Grey */
-            color: #ecf0f1;  /* Light grey text */
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, width 0.3s ease;
-        }
-
-        /* Sidebar Header */
-        .sidebar h2 {
-            font-size: 1.6rem;
-            color: #fff;
-            font-weight: 600;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-family: 'Helvetica Neue', sans-serif;
-            text-align: center;
-        }
-
-        /* Sidebar Links */
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 16px 0;
-        }
-
-        .sidebar-link {
-            color: #ecf0f1;  /* Light grey */
-            font-size: 1.1rem;
-            font-weight: 500;
-            display: block;
-            padding: 12px 0;
-            transition: color 0.3s ease, padding-left 0.3s ease;
-            border-left: 4px solid transparent;
-            padding-left: 16px;
-        }
-
-        /* Hover effects on Sidebar Links */
-        .sidebar-link:hover {
-            color: #38a363; /* Green */
-            border-left: 4px solid #38a363; /* Green indicator */
-            padding-left: 20px;
-            font-weight: bold;
-        }
-
-        .sidebar-link.active {
-            color: #38a363;  /* Green for active link */
-            font-weight: bold;
-            border-left: 4px solid #38a363;
-        }
-
-        /* Sidebar Mobile Adjustments */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 100%;
-                position: fixed;
-                z-index: 10;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                box-shadow: none;
-                padding: 15px;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .sidebar h2 {
-                font-size: 1.5rem;
-                text-align: left;
-            }
-
-            .sidebar-link {
-                padding-left: 12px;
-                font-size: 1rem;
-            }
-        }
-        .add-art-form {
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 20px auto;
-        }
-
-        .add-art-form h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .add-art-form label {
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .add-art-form input[type="text"],
-        .add-art-form input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #bbb;
-            border-radius: 5px;
-            transition: border-color 0.3s ease;
-        }
-
-        .add-art-form input[type="text"]:focus,
-        .add-art-form input[type="number"]:focus {
-            border-color: #4caf50;
-        }
-
-        .submit-btn {
-            background-color: #505050;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            transition:
-                background-color 0.3s ease,
-                transform 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #404040;
-            transform: scale(1.05);
-        }
-    </style>
+    <link rel="stylesheet" href="/public/styles/main.css" />
 </head>
 <body>
     <%- include("./partials/header") %>
 
     <!-- Content -->
-    <main class="dashboard-container">
+    <main class="dashboard-wrapper">
         <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <h2>Dashboard</h2>
-            <ul>
+        <aside class="sidebar-navigation">
+            <h2 class="sidebar-title">Dashboard</h2>
+            <ul class="sidebar-links">
                 <li><a href="/dashboard" class="sidebar-link active">My Collection</a></li>
+                <!-- Add more links here if needed -->
             </ul>
         </aside>
 
         <!-- Art Gallery Content -->
         <section class="art-gallery" id="art-collection">
-            <div class="add-art-form">
-                <h2>Add New Artwork</h2>
+            <div class="art-form-section">
+                <h2 class="form-title">Add New Artwork</h2>
                 <form
                     action="/art/add/new"
                     method="POST"
                     enctype="multipart/form-data"
+                    class="art-form"
                 >
-                    <label for="art-title">Artwork Title:</label>
-                    <input type="text" id="art-title" name="Title" required />
-
-                    <label for="artist">Artist:</label>
-                    <input type="text" id="artist" name="Artist" required />
-
-                    <label for="year">Year:</label>
-                    <input type="number" id="year" name="Year" required />
-
-                    <label for="price">Price:</label>
-                    <input type="text" id="price" name="Price" required />
-
-                    <label for="image">Upload Artwork Image:</label>
-                    <input
-                        type="file"
-                        id="artwork"
-                        name="Artwork"
-                        accept="image/*"
-                        required
-                    />
-
-                    <button type="submit" class="submit-btn">Add Artwork</button>
+                    <!-- Artwork Title Section -->
+                    <div class="form-group">
+                        <label for="art-title" class="form-label">Title:</label>
+                        <input type="text" id="art-title" name="Title" class="form-input" required />
+                    </div>
+        
+                    <!-- Artist Section -->
+                    <div class="form-group">
+                        <label for="artist" class="form-label">Artist:</label>
+                        <input type="text" id="artist" name="Artist" class="form-input" required />
+                    </div>
+        
+                    <!-- Year Section -->
+                    <div class="form-group">
+                        <label for="year" class="form-label">Year:</label>
+                        <input type="number" id="year" name="Year" class="form-input" required />
+                    </div>
+        
+                    <!-- Price Section -->
+                    <div class="form-group">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="text" id="price" name="Price" class="form-input" required />
+                    </div>
+        
+                    <!-- Artwork Image Upload Section -->
+                    <div class="form-group">
+                        <label for="artwork" class="form-label">Upload Artwork Image:</label>
+                        <input
+                            type="file"
+                            id="artwork"
+                            name="Artwork"
+                            class="form-input"
+                            accept="image/*"
+                            required
+                        />
+                    </div>
+        
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit" class="form-submit-button">Add Artwork</button>
+                    </div>
                 </form>
             </div>
         </section>
+        
     </main>
 
     <%- include("./partials/footer") %>

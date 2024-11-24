@@ -135,6 +135,10 @@ body {
     z-index: 10;
 }
 
+.dropdown-content form {
+	display: block;
+	width: 100%;
+}
 .dropdown-content a,
 .dropdown-content form input[type="submit"] {
     color: #333;
@@ -144,6 +148,7 @@ body {
 	text-align:left;
     display: block;
     font-size: 14px;
+	border: none;
     transition: background-color 0.3s ease;
 }
 
@@ -151,8 +156,11 @@ body {
     background-color: #f4f4f4;
 }
 
-.dropdown-content form input[type="submit"] {
-	border: none;
+.dropdown-content form input[type="submit"]:hover {
+	cursor: pointer;
+	background-color: #333;
+	color: white;
+	width: 100%;
 }
 
 /* Show dropdown on hover */
@@ -266,7 +274,7 @@ body {
     border-radius: 10px;
 }
 
-.profile-form {
+.profile-form, .art-form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -528,7 +536,7 @@ body {
 }
 
 .artwork-info {
-    padding: 15px;
+	font-size: medium;
 }
 
 .artwork-info h3 {
@@ -544,6 +552,194 @@ body {
     margin-bottom: 15px;
 }
 
+/* Dashboard styles */
+.dashboard-wrapper {
+    display: flex;
+    min-height: 80vh;
+}
+
+/* Sidebar Navigation */
+.dashboard-wrapper .sidebar-navigation {
+    width: 250px;
+    background-color: #2c3e50;
+    padding: 20px;
+    color: rgb(210, 248, 182);
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-wrapper .sidebar-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-wrapper .sidebar-links {
+    list-style: none;
+	padding: 0;
+}
+
+.dashboard-wrapper .sidebar-link {
+    display: block;
+    color: white;
+    text-decoration: none;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding: 5px 10px;
+    font-size: 18px;
+    border-bottom: 1px solid #34495e;
+}
+
+.dashboard-wrapper .sidebar-link:hover {
+    background-color: #34495e;
+	border-left: 3px solid #81e697;
+}
+
+/* Art Collection Section */
+.dashboard-wrapper .art-collection-section {
+    flex: 1;
+    padding: 30px;
+    background-color: white;
+}
+
+/* Header */
+.dashboard-wrapper .collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-wrapper .collection-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.dashboard-wrapper .add-art-button {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.dashboard-wrapper .add-art-button:hover {
+    background-color: #16a085;
+}
+
+.dashboard-wrapper .divider {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Empty Collection Message */
+.dashboard-wrapper .empty-message {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Artwork Sections */
+.dashboard-wrapper .artwork-section {
+    margin-bottom: 40px;
+}
+
+.dashboard-wrapper .section-title {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Grid Layout for Artwork Cards */
+.dashboard-wrapper .artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.dashboard-wrapper .artwork-card {
+    background-color: #ecf0f1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dashboard-wrapper .artwork-card:hover {
+    transform: translateY(-5px);
+}
+
+.dashboard-wrapper .artwork-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-wrapper .artwork-card:hover .artwork-image {
+    transform: scale(1.05);
+}
+
+.dashboard-wrapper .artwork-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 15px;
+}
+
+.dashboard-wrapper .artwork-info {
+    font-size: 16px;
+    color: #7f8c8d;
+    margin: 0 15px 15px;
+}
+
+.dashboard-wrapper .artwork-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 15px 15px;
+}
+
+/* Approved, Pending, Rejected Styles */
+.dashboard-wrapper .approved-artworks .artwork-card {
+    border-bottom: 5px solid #1abc9c;
+}
+
+.dashboard-wrapper .pending-artworks .artwork-card {
+    border-bottom: 5px solid #f39c12;
+}
+
+.dashboard-wrapper .rejected-artworks .artwork-card {
+    border-bottom: 5px solid #e74c3c;
+}
+
+.art-gallery {
+	width: 100%;
+}
+
+.art-gallery .form-title {
+	color: black
+}
+
+.art-form-section {
+	background-color: var(--primary);
+	padding: 20px 20px;
+	text-align: center;
+}
+
+.art-form {
+	background-color: rgb(255, 255, 255);
+	width: 90%;
+	padding: 30px 10px;
+	margin: 0 auto;
+}
+
+.art-form .form-group {
+	width: 60%;
+}
 
 /* Footer Styles */
 footer {
