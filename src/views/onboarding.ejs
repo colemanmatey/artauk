@@ -5,22 +5,18 @@
 </head>
 <body>
     <%- include("./partials/header") %>
-    <%- include("./partials/nav") %>
-    
+
     <!-- Content -->
-    <main>
-        <section class="left-section">
-            <div class="artauk-box">
-                <span class="artauk-text">Getting Started!</span>
-                <p>Let's get you set up</p>
+    <main class="content">
+        <section class="intro-section">
+            <div class="intro-container">
+                <span class="intro-heading">Getting Started!</span>
+                <p class="intro-text">Let's get you set up</p>
                 <a href="/profile/onboarding/user/<%= userID %>/new" class="explore-btn">Next</a>
             </div>
         </section>
     </main>
-    
-    <!-- Sidebar -->
-    <aside></aside>
-    
+
     <%- include("./partials/footer") %>
 </body>
 </html>

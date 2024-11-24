@@ -11,9 +11,11 @@
     <div class="auth-buttons">
         <% if (user != null) { %>
             <div class="user-profile">
+                <% if (profile != null) { %>
                 <a href="profilelogin.html">
                     <img class="profile-pic" src="/uploads/profile/<%= profile.ProfilePicture %>" alt="User Profile" class="profile-pic">
                 </a>
+                <% } %>
                 <div class="username-dropdown">
                     <span class="username"><%= user %></span>
                     <div class="dropdown-content">
