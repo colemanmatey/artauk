@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <%- include("./partials/header") %>
+
+    <!-- Content -->
+    <main class="content">
+        <section class="intro-section">
+            <div class="intro-container">
+                <span class="intro-heading">Getting Started!</span>
+                <p class="intro-text">Let's get you set up</p>
+                <a href="/profile/onboarding/user/<%= userID %>/new" class="explore-btn">Next</a>
+            </div>
+        </section>
+    </main>
+
+    <%- include("./partials/footer") %>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <%- include("./partials/header") %>
+
+    <!-- Content -->
+    <main class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-navigation">
+            <h2 class="sidebar-title">Dashboard</h2>
+            <ul class="sidebar-links">
+                <li><a href="/dashboard" class="sidebar-link active">My Collection</a></li>
+                <!-- Add more links here if needed -->
+            </ul>
+        </aside>
+    
+        <!-- Art Gallery Content -->
+        <section class="art-collection-section" id="art-collection">
+            <div class="collection-header">
+                <h1 class="collection-title"><%= profile.FirstName %>'s Collection</h1>
+                <a class="add-art-button" href="/art/add/new/">Add New</a>
+            </div>
+            <hr class="divider">
+    
+            <% if (approvedArtwork.length === 0 && pendingArtwork.length === 0 && rejectedArtwork.length === 0) { %> 
+                <p class="empty-message">You have no artwork in your collection at this moment.</p>
+            <% } else { %>
+                <!-- Approved Artwork Section -->
+                <div class="artwork-section approved-artworks">
+                    <h2 class="section-title">Approved</h2>
+                    <% if (approvedArtwork && approvedArtwork.length > 0) { %>
+                        <div class="artwork-grid">
+                            <% approvedArtwork.forEach(art => { %>
+                                <div class="artwork-card" data-art-id="<%= art.id %>">
+                                    <img class="artwork-image" src="uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>">
+                                    <h3 class="artwork-title"><%= art.Title %>, <%= art.Year %></h3>
+                                    <p class="artwork-info">by <em><%= art.Artist %></em></p>
+                                    <p class="artwork-price">Price: $<%= art.Price %></p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } else { %>
+                        <p class="empty-message">No approved artwork available in your collection.</p>
+                    <% } %>
+                </div>
+    
+                <!-- Pending Artwork Section -->
+                <div class="artwork-section pending-artworks">
+                    <h2 class="section-title">Pending</h2>
+                    <% if (pendingArtwork && pendingArtwork.length > 0) { %>
+                        <div class="artwork-grid">
+                            <% pendingArtwork.forEach(art => { %>
+                                <div class="artwork-card" data-art-id="<%= art.id %>">
+                                    <img class="artwork-image" src="uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>">
+                                    <h3 class="artwork-title"><%= art.Title %></h3>
+                                    <p class="artwork-info"><em><%= art.Artist %>, <%= art.Year %></em></p>
+                                    <p class="artwork-price">Price: $<%= art.Price %></p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    <% } else { %>
+                        <p class="empty-message">No artwork pending approval in your collection.</p>
+                    <% } %>
+                </div>
+    
+                <!-- Rejected Artwork Section -->
+                <% if (rejectedArtwork && rejectedArtwork.length > 0) { %>
+                    <div class="artwork-section rejected-artworks">
+                        <h2 class="section-title">Declined</h2>
+                        <div class="artwork-grid">
+                            <% rejectedArtwork.forEach(art => { %>
+                                <div class="artwork-card" data-art-id="<%= art.id %>">
+                                    <img class="artwork-image" src="uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>">
+                                    <h3 class="artwork-title"><%= art.Title %></h3>
+                                    <p class="artwork-info"><em><%= art.Artist %>, <%= art.Year %></em></p>
+                                    <p class="artwork-price">Price: $<%= art.Price %></p>
+                                </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                <% } %>
+            <% } %>
+            
+        </section>
+    </main>
+    
+
+    <!-- Footer -->
+    <%- include("./partials/footer") %>
+</body>
+</html>

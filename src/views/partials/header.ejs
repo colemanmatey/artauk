@@ -1,0 +1,35 @@
+<header class="site-header">
+    <!-- Logo -->
+    <div class="logo">
+        <a href="/"><img src="/public/images/logo.png" alt="Artauk Logo"></a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <%- include("./nav") %>
+
+    <!-- Auth Buttons -->
+    <div class="auth-buttons">
+        <% if (user != null) { %>
+            <div class="user-profile">
+                <% if (profile != null) { %>
+                <a href="profilelogin.html">
+                    <img class="profile-pic" src="/uploads/profile/<%= profile.ProfilePicture %>" alt="User Profile" class="profile-pic">
+                </a>
+                <% } %>
+                <div class="username-dropdown">
+                    <span class="username"><%= user %></span>
+                    <div class="dropdown-content">
+                        <a href="/profile">Profile</a>
+                        <a href="/dashboard">Dashboard</a>
+                        <form action="/auth/logout" method="post" class="logout-form">
+                            <input class="logout" type="submit" value="Logout" class="logout-btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <a href="/auth/login" class="sign-in">Sign In</a>
+            <a href="/auth/register" class="register-btn">Register</a>
+        <% } %>
+    </div>
+</header>

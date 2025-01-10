@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+    <link rel="stylesheet" href="/public/styles/main.css" />
+</head>
+<body>
+    <%- include("./partials/header") %>
+
+    <!-- Content -->
+    <main class="dashboard-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar-navigation">
+            <h2 class="sidebar-title">Dashboard</h2>
+            <ul class="sidebar-links">
+                <li><a href="/dashboard" class="sidebar-link active">My Collection</a></li>
+                <!-- Add more links here if needed -->
+            </ul>
+        </aside>
+
+        <!-- Art Gallery Content -->
+        <section class="art-gallery" id="art-collection">
+            <div class="art-form-section">
+                <h2 class="form-title">Add New Artwork</h2>
+                <form
+                    action="/art/add/new"
+                    method="POST"
+                    enctype="multipart/form-data"
+                    class="art-form"
+                >
+                    <!-- Artwork Title Section -->
+                    <div class="form-group">
+                        <label for="art-title" class="form-label">Title:</label>
+                        <input type="text" id="art-title" name="Title" class="form-input" required />
+                    </div>
+        
+                    <!-- Artist Section -->
+                    <div class="form-group">
+                        <label for="artist" class="form-label">Artist:</label>
+                        <input type="text" id="artist" name="Artist" class="form-input" required />
+                    </div>
+        
+                    <!-- Year Section -->
+                    <div class="form-group">
+                        <label for="year" class="form-label">Year:</label>
+                        <input type="number" id="year" name="Year" class="form-input" required />
+                    </div>
+        
+                    <!-- Price Section -->
+                    <div class="form-group">
+                        <label for="price" class="form-label">Price:</label>
+                        <input type="text" id="price" name="Price" class="form-input" required />
+                    </div>
+        
+                    <!-- Artwork Image Upload Section -->
+                    <div class="form-group">
+                        <label for="artwork" class="form-label">Upload Artwork Image:</label>
+                        <input
+                            type="file"
+                            id="artwork"
+                            name="Artwork"
+                            class="form-input"
+                            accept="image/*"
+                            required
+                        />
+                    </div>
+        
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        <button type="submit" class="form-submit-button">Add Artwork</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+    </main>
+
+    <%- include("./partials/footer") %>
+</body>
+</html>

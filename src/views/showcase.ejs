@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <!-- Hero Section (Discover Art) -->
+        <section class="discover-art">
+            <div class="hero-content">
+                <h1>Discover Art</h1>
+                <p>Explore a curated collection of amazing artworks from talented artists around the world.</p>
+                <a href="#" class="explore-btn">Go to Auctions</a>
+            </div>
+        </section>
+
+        <!-- Showcase Section -->
+        <section class="showcase-section">
+            <h2>Browse</h2>
+            <div class="artwork-gallery">
+                <% artwork.forEach(art => { %>
+                    <div class="artwork-item">
+                        <img src="/uploads/artwork/<%= art.Artwork %>" alt="<%= art.Title %>" class="artwork-image">
+                        <div class="artwork-info">
+                            <h3><%= art.Title %></h3>
+                            <p><%= art.Artist %></p>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </section>
+    </main>
+
+    <%- include("./partials/footer") %>
+</body>
+</html>
